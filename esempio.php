@@ -1,5 +1,13 @@
 <?php
+/**
+ * Created by PhpStorm.
+ * User: Alessandra
+ * Date: 06/09/2018
+ * Time: 17:41
+ */
+
 include "class/MySql.php";
+
     $conn = new MySql();
 
     $row = $conn->selectAll("utenti")->fetch_assoc();

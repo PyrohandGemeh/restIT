@@ -69,7 +69,7 @@ class MySql {
                         $query .= " ";
                 }
             }
-
+            //echo $query;
             return  $this->connection->query($query);
         }
         else
