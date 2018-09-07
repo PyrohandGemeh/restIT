@@ -6,7 +6,7 @@
  * Time: 17:41
  */
 
-    include "../class/MySql.php";
+    include "../Class/MySql.php";
 
     //if(isset($_POST["login"])) {
         $conn = new MySql();

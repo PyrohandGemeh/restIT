@@ -47,33 +47,22 @@ class MySql {
     }
 
     /*
-     * Precondizione: fieldsName è un array dei nomi dei campi
-     *                filedsValue è un array di valori
+     * Precondizione: values è un array associativo (esempio: $values = ['a' => 'a','b' => 'b'];)
      *                operator è l'operatore per compare gli elementi (esempio: "=")
      */
-    public function selectAllWhere($tableName, $fieldsName, $fieldsValue, $operator) {
-        $fieldsName = array_filter($fieldsName);
-        $fieldsValue = array_filter($fieldsValue);
-
+    public function selectAllWhere($tableName, $values, $operator) {
         $query = 'SELECT * FROM '. $tableName .' WHERE ';
 
-        if(count($fieldsName) == count($fieldsValue)) {
-            for($i = 0; $i < count($fieldsName); $i++) {
-                if($fieldsValue[$i] != null && $fieldsName[$i] != null) {
-                    $query .= $fieldsName[$i] .' '. $operator .' ';
-                    $query .= "'". $fieldsValue[$i] ."'";
+        $last = end($values);
+        foreach ($values as $field => $value) {
+                $query .= $field . ' ' . $operator . ' ';
+                $query .= "'" . $value . "'";
 
-                    if($i + 1 != count($fieldsName))
-                        $query .= " AND ";
-                    else
-                        $query .= " ";
-                }
-            }
-            //echo $query;
-            return  $this->connection->query($query);
+                if($value !== $last)
+                    $query .= " AND ";
         }
-        else
-            echo "errore";
+
+        return  $this->connection->query($query);
     }
 
     public function findOneById($id, $tableName) {

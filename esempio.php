@@ -6,7 +6,7 @@
  * Time: 17:41
  */
 
-    include "class/MySql.php";
+    include "Class/MySql.php";
 
     $conn = new MySql();
 
@@ -17,10 +17,12 @@
     $row = $conn->select("utenti", $fields)->fetch_assoc();
     echo "SELECT: ". $row["username"] ."<br>";
 
-    $fields = array("username", "password");
-    $values = array("admin", md5("admin"));
+    $values = [
+        'username' => 'admin',
+        'password' => md5("admin")
+    ];
 
-    $row = $conn->selectAllWhere("utenti", $fields, $values, "=")->fetch_assoc();
+    $row = $conn->selectAllWhere("utenti", $values, "=")->fetch_assoc();
     echo "SELECT ALL WHERE: ". $row["username"] ."<br>";
 
     $row = $conn->findOneById(1, "utenti")->fetch_assoc();
