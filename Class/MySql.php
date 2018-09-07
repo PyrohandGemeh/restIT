@@ -40,13 +40,13 @@ class MySql {
             else
                 $query .= " ";
         }
-        
+
         $query .= "FROM ". $tableName;
         return  $this->connection->query($query);
     }
 
     /*
-     * Precondizione: values è un array associativo (esempio: $values = ['a' => 'a','b' => 'b'];)
+     * Precondizione: values è un array associativo (esempio: $values = ['campo1' => 'a','campo2' => 'b'];)
      *                operator è l'operatore per compare gli elementi (esempio: "=")
      */
     public function selectAllWhere($tableName, $values, $operator) {
@@ -67,5 +67,35 @@ class MySql {
     public function findOneById($id, $tableName) {
         $query = "SELECT * FROM ". $tableName ." WHERE id = ". $id;
         return  $this->connection->query($query);
+    }
+
+    public function insert($tableName, $values) {
+        $query = 'INSERT INTO '. $tableName .' (';
+
+        $last = end($values);
+        foreach ($values as $field => $value) {
+            $query .= $field;
+
+            if($value !== $last)
+                $query .= ', ';
+            else
+                $query .= ') VALUES (';
+        }
+
+        $last = end($values);
+        foreach ($values as $field => $value) {
+            $query .= "'" . $value . "'";
+
+            if($value !== $last)
+                $query .= ', ';
+            else
+                $query .= ')';
+        }
+
+        $result = $this->connection->query($query);
+        if($result)
+            return true;
+        else
+            return false;
     }
 }

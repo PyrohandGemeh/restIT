@@ -10,6 +10,8 @@
 
     $conn = new MySql();
 
+    /*--------PROVE SELECT---------*/
+    /*
     $row = $conn->selectAll("utenti")->fetch_assoc();
     echo "SELECT ALL: ". $row["username"] ."<br>";
 
@@ -27,6 +29,18 @@
 
     $row = $conn->findOneById(1, "utenti")->fetch_assoc();
     echo "FIND BY ID: ". $row["username"] ."<br>";
+    */
+
+    /*--------PROVE INSERT---------*/
+    /*
+    $values = [
+        'username' => 'ale',
+        'password' => md5("ale")
+    ];
+
+    echo "INSERT:". $conn->insert("utenti", $values);
+    */
+
 
     $conn->disconnect();
 ?>
