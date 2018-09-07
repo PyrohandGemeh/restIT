@@ -10,19 +10,17 @@ class MySql {
     private $connection;
 
     public function __construct() {
-        $this->connection = new mysqli("localhost","root", "", "restIT");
+        $this->connection = new mysqli("localhost", "root", "", "restIT");
     }
 
     public function disconnect() {
         mysqli_close($this->connection);
     }
 
-    /*
-     * Precondizione: tableName è il nome della tabella del db (esempio: utenti)
-     */
+
     public function selectAll($tableName) {
-        $query = "SELECT * FROM ". $tableName;
-        return  $this->connection->query($query);
+        $query = "SELECT * FROM " . $tableName;
+        return $this->connection->query($query);
     }
 
     /*
@@ -35,14 +33,14 @@ class MySql {
         foreach ($fields as $field) {
             $query .= $field;
 
-            if($field !== $last)
+            if ($field !== $last)
                 $query .= ", ";
             else
                 $query .= " ";
         }
 
-        $query .= "FROM ". $tableName;
-        return  $this->connection->query($query);
+        $query .= "FROM " . $tableName;
+        return $this->connection->query($query);
     }
 
     /*
@@ -50,22 +48,22 @@ class MySql {
      *                operator è l'operatore per compare gli elementi (esempio: "=")
      */
     public function selectAllWhere($tableName, $values, $operator) {
-        $query = 'SELECT * FROM '. $tableName .' WHERE ';
+        $query = 'SELECT * FROM ' . $tableName . ' WHERE ';
 
         $last = end($values);
         foreach ($values as $field => $value) {
-                $query .= $field . ' ' . $operator . ' ';
-                $query .= "'" . $value . "'";
+            $query .= $field . ' ' . $operator . ' ';
+            $query .= "'" . $value . "'";
 
-                if($value !== $last)
-                    $query .= " AND ";
+            if ($value !== $last)
+                $query .= " AND ";
         }
 
-        return  $this->connection->query($query);
+        return $this->connection->query($query);
     }
 
-    public function findOneById($id, $tableName) {
-        $query = "SELECT * FROM ". $tableName ." WHERE id = ". $id;
+    public function findOneById($tableName, $id) {
+        $query = "SELECT * FROM " . $tableName . " WHERE id = " . $id;
         return $this->connection->query($query);
     }
 
@@ -73,13 +71,13 @@ class MySql {
      * Precondizione: $values è un array associativo
      */
     public function insert($tableName, $values) {
-        $query = 'INSERT INTO '. $tableName .' (';
+        $query = 'INSERT INTO ' . $tableName . ' (';
 
         $last = end($values);
         foreach ($values as $field => $value) {
             $query .= $field;
 
-            if($value !== $last)
+            if ($value !== $last)
                 $query .= ', ';
             else
                 $query .= ') VALUES (';
@@ -89,38 +87,60 @@ class MySql {
         foreach ($values as $field => $value) {
             $query .= "'" . $value . "'";
 
-            if($value !== $last)
+            if ($value !== $last)
                 $query .= ', ';
             else
                 $query .= ')';
         }
 
         $result = $this->connection->query($query);
-        if($result)
+        if ($result)
             return true;
         else
             return false;
     }
 
     public function deleteAll($tableName) {
-        $query = 'DELETE FROM '. $tableName;
+        $query = 'DELETE FROM ' . $tableName;
 
         $result = $this->connection->query($query);
-        if($result)
+        if ($result)
             return true;
         else
             return false;
     }
 
     public function deleteWhereId($id, $tableName) {
-        if($this->findOneById($id, $tableName)->num_rows == 1) {
-            $query = 'DELETE FROM '. $tableName .' WHERE id = '. $id;
+        if ($this->findOneById($id, $tableName)->num_rows == 1) {
+            $query = 'DELETE FROM ' . $tableName . ' WHERE id = ' . $id;
 
             $result = $this->connection->query($query);
-            if($result)
+            if ($result)
                 return true;
         }
 
         return false;
+    }
+
+    public function updateWhereId($tableName, $values, $id) {
+        $query = 'UPDATE ' . $tableName . ' SET ';
+
+        $last = end($values);
+        foreach ($values as $field => $value) {
+            $query .= $field . ' = ';
+            $query .= "'" . $value . "'";
+
+            if ($value !== $last)
+                $query .= ", ";
+            else
+                $query .=" WHERE id = ". $id;
+        }
+
+        $result = $this->connection->query($query);
+        if ($result)
+            return true;
+        else
+            return false;
+
     }
 }
