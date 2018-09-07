@@ -34,11 +34,17 @@
     /*--------PROVE INSERT---------*/
     /*
     $values = [
-        'username' => 'ale',
-        'password' => md5("ale")
+        'username' => 'admin',
+        'password' => md5("admin")
     ];
 
-    echo "INSERT:". $conn->insert("utenti", $values);
+    echo "INSERT: ". $conn->insert("utenti", $values);
+    */
+
+    /*--------PROVE DELETE---------*/
+    /*
+    echo "DELETE ALL: ". $conn->deleteAll("utenti");
+    echo "DELETE WHERE ID: ". $conn->deleteWhereId(14, "utenti");
     */
 
 

@@ -66,9 +66,12 @@ class MySql {
 
     public function findOneById($id, $tableName) {
         $query = "SELECT * FROM ". $tableName ." WHERE id = ". $id;
-        return  $this->connection->query($query);
+        return $this->connection->query($query);
     }
 
+    /*
+     * Precondizione: $values è un array associativo
+     */
     public function insert($tableName, $values) {
         $query = 'INSERT INTO '. $tableName .' (';
 
@@ -97,5 +100,27 @@ class MySql {
             return true;
         else
             return false;
+    }
+
+    public function deleteAll($tableName) {
+        $query = 'DELETE FROM '. $tableName;
+
+        $result = $this->connection->query($query);
+        if($result)
+            return true;
+        else
+            return false;
+    }
+
+    public function deleteWhereId($id, $tableName) {
+        if($this->findOneById($id, $tableName)->num_rows == 1) {
+            $query = 'DELETE FROM '. $tableName .' WHERE id = '. $id;
+
+            $result = $this->connection->query($query);
+            if($result)
+                return true;
+        }
+
+        return false;
     }
 }
