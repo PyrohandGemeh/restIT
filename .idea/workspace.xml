@@ -2,10 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fc3533d0-c936-4d61-a1e8-fd47d4da0506" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/Controller/LoginController.php" afterPath="$PROJECT_DIR$/Controller/LoginController.php" />
-      <change beforePath="$PROJECT_DIR$/class/MySql.php" afterPath="$PROJECT_DIR$/Class/MySql.php" />
-      <change beforePath="$PROJECT_DIR$/esempio.php" afterPath="$PROJECT_DIR$/esempio.php" />
+      <change beforePath="$PROJECT_DIR$/Class/MySql.php" afterPath="$PROJECT_DIR$/Class/MySql.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -31,22 +28,22 @@
       <file leaf-file-name="MySql.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Class/MySql.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="373">
-              <caret line="49" column="94" lean-forward="false" selection-start-line="49" selection-start-column="94" selection-end-line="49" selection-end-column="94" />
+            <state relative-caret-position="271">
+              <caret line="42" column="8" lean-forward="false" selection-start-line="42" selection-start-column="8" selection-end-line="42" selection-end-column="8" />
               <folding>
-                <marker date="1536331662184" expanded="true" signature="492:506" ph="SELECT * fro... ${$tableName}" />
-                <marker date="1536331662184" expanded="true" signature="498:501" ph="select * fro... UTENTI" />
-                <marker date="1536331662184" expanded="true" signature="498:506" ph="select * fro... ${$tableName}" />
-                <marker date="1536331662184" expanded="true" signature="1425:1438" ph="SELECT * FRO... " />
-                <marker date="1536331662184" expanded="true" signature="1425:1439" ph="SELECT * FRO... ${$tableName}" />
-                <marker date="1536331662184" expanded="true" signature="1425:1455" ph="SELECT * FRO... ${$tableName}" />
-                <marker date="1536331662184" expanded="true" signature="1425:1461" ph="SELECT * FRO... ${$tableName}" />
-                <marker date="1536331662184" expanded="true" signature="1425:1462" ph="SELECT * FRO... ${$tableName}" />
-                <marker date="1536331662184" expanded="true" signature="1862:1875" ph="SELECT * FRO... " />
-                <marker date="1536331662184" expanded="true" signature="1862:1876" ph="SELECT * FRO... ${$tableName}" />
-                <marker date="1536331662184" expanded="true" signature="1862:1903" ph="SELECT * FRO... ${$tableName}" />
-                <marker date="1536331662184" expanded="true" signature="1862:1904" ph="SELECT * FRO... ${$tableName}" />
-                <marker date="1536331662184" expanded="true" signature="1862:1905" ph="SELECT * FRO... ${$tableName}" />
+                <marker date="1536331818762" expanded="true" signature="492:506" ph="SELECT * fro... ${$tableName}" />
+                <marker date="1536331818762" expanded="true" signature="498:501" ph="select * fro... UTENTI" />
+                <marker date="1536331818762" expanded="true" signature="498:506" ph="select * fro... ${$tableName}" />
+                <marker date="1536331818762" expanded="true" signature="1368:1381" ph="SELECT * FRO... " />
+                <marker date="1536331818762" expanded="true" signature="1368:1382" ph="SELECT * FRO... ${$tableName}" />
+                <marker date="1536331818762" expanded="true" signature="1368:1398" ph="SELECT * FRO... ${$tableName}" />
+                <marker date="1536331818762" expanded="true" signature="1368:1404" ph="SELECT * FRO... ${$tableName}" />
+                <marker date="1536331818762" expanded="true" signature="1368:1405" ph="SELECT * FRO... ${$tableName}" />
+                <marker date="1536331818762" expanded="true" signature="1805:1818" ph="SELECT * FRO... " />
+                <marker date="1536331818762" expanded="true" signature="1805:1819" ph="SELECT * FRO... ${$tableName}" />
+                <marker date="1536331818762" expanded="true" signature="1805:1846" ph="SELECT * FRO... ${$tableName}" />
+                <marker date="1536331818762" expanded="true" signature="1805:1847" ph="SELECT * FRO... ${$tableName}" />
+                <marker date="1536331818762" expanded="true" signature="1805:1848" ph="SELECT * FRO... ${$tableName}" />
               </folding>
             </state>
           </provider>
@@ -174,17 +171,18 @@
       <updated>1536236392949</updated>
       <workItem from="1536236394278" duration="5438000" />
       <workItem from="1536246519563" duration="3042000" />
-      <workItem from="1536328053389" duration="3556000" />
+      <workItem from="1536328053389" duration="3699000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="12036000" />
+    <option name="totallyTimeSpent" value="12179000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="0" width="1099" height="1047" extended-state="0" />
+    <editor active="true" />
     <layout>
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22425409" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22425409" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
@@ -220,19 +218,19 @@
         <state relative-caret-position="34">
           <caret line="7" column="0" lean-forward="false" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
           <folding>
-            <marker date="1536331662184" expanded="true" signature="492:506" ph="SELECT * fro... ${$tableName}" />
-            <marker date="1536331662184" expanded="true" signature="498:501" ph="select * fro... UTENTI" />
-            <marker date="1536331662184" expanded="true" signature="498:506" ph="select * fro... ${$tableName}" />
-            <marker date="1536331662184" expanded="true" signature="1425:1438" ph="SELECT * FRO... " />
-            <marker date="1536331662184" expanded="true" signature="1425:1439" ph="SELECT * FRO... ${$tableName}" />
-            <marker date="1536331662184" expanded="true" signature="1425:1455" ph="SELECT * FRO... ${$tableName}" />
-            <marker date="1536331662184" expanded="true" signature="1425:1461" ph="SELECT * FRO... ${$tableName}" />
-            <marker date="1536331662184" expanded="true" signature="1425:1462" ph="SELECT * FRO... ${$tableName}" />
-            <marker date="1536331662184" expanded="true" signature="1862:1875" ph="SELECT * FRO... " />
-            <marker date="1536331662184" expanded="true" signature="1862:1876" ph="SELECT * FRO... ${$tableName}" />
-            <marker date="1536331662184" expanded="true" signature="1862:1903" ph="SELECT * FRO... ${$tableName}" />
-            <marker date="1536331662184" expanded="true" signature="1862:1904" ph="SELECT * FRO... ${$tableName}" />
-            <marker date="1536331662184" expanded="true" signature="1862:1905" ph="SELECT * FRO... ${$tableName}" />
+            <marker date="1536331818762" expanded="true" signature="492:506" ph="SELECT * fro... ${$tableName}" />
+            <marker date="1536331818762" expanded="true" signature="498:501" ph="select * fro... UTENTI" />
+            <marker date="1536331818762" expanded="true" signature="498:506" ph="select * fro... ${$tableName}" />
+            <marker date="1536331818762" expanded="true" signature="1368:1381" ph="SELECT * FRO... " />
+            <marker date="1536331818762" expanded="true" signature="1368:1382" ph="SELECT * FRO... ${$tableName}" />
+            <marker date="1536331818762" expanded="true" signature="1368:1398" ph="SELECT * FRO... ${$tableName}" />
+            <marker date="1536331818762" expanded="true" signature="1368:1404" ph="SELECT * FRO... ${$tableName}" />
+            <marker date="1536331818762" expanded="true" signature="1368:1405" ph="SELECT * FRO... ${$tableName}" />
+            <marker date="1536331818762" expanded="true" signature="1805:1818" ph="SELECT * FRO... " />
+            <marker date="1536331818762" expanded="true" signature="1805:1819" ph="SELECT * FRO... ${$tableName}" />
+            <marker date="1536331818762" expanded="true" signature="1805:1846" ph="SELECT * FRO... ${$tableName}" />
+            <marker date="1536331818762" expanded="true" signature="1805:1847" ph="SELECT * FRO... ${$tableName}" />
+            <marker date="1536331818762" expanded="true" signature="1805:1848" ph="SELECT * FRO... ${$tableName}" />
           </folding>
         </state>
       </provider>
@@ -260,19 +258,19 @@
         <state relative-caret-position="1054">
           <caret line="67" column="24" lean-forward="true" selection-start-line="67" selection-start-column="24" selection-end-line="67" selection-end-column="24" />
           <folding>
-            <marker date="1536331662184" expanded="true" signature="492:506" ph="SELECT * fro... ${$tableName}" />
-            <marker date="1536331662184" expanded="true" signature="498:501" ph="select * fro... UTENTI" />
-            <marker date="1536331662184" expanded="true" signature="498:506" ph="select * fro... ${$tableName}" />
-            <marker date="1536331662184" expanded="true" signature="1425:1438" ph="SELECT * FRO... " />
-            <marker date="1536331662184" expanded="true" signature="1425:1439" ph="SELECT * FRO... ${$tableName}" />
-            <marker date="1536331662184" expanded="true" signature="1425:1455" ph="SELECT * FRO... ${$tableName}" />
-            <marker date="1536331662184" expanded="true" signature="1425:1461" ph="SELECT * FRO... ${$tableName}" />
-            <marker date="1536331662184" expanded="true" signature="1425:1462" ph="SELECT * FRO... ${$tableName}" />
-            <marker date="1536331662184" expanded="true" signature="1862:1875" ph="SELECT * FRO... " />
-            <marker date="1536331662184" expanded="true" signature="1862:1876" ph="SELECT * FRO... ${$tableName}" />
-            <marker date="1536331662184" expanded="true" signature="1862:1903" ph="SELECT * FRO... ${$tableName}" />
-            <marker date="1536331662184" expanded="true" signature="1862:1904" ph="SELECT * FRO... ${$tableName}" />
-            <marker date="1536331662184" expanded="true" signature="1862:1905" ph="SELECT * FRO... ${$tableName}" />
+            <marker date="1536331818762" expanded="true" signature="492:506" ph="SELECT * fro... ${$tableName}" />
+            <marker date="1536331818762" expanded="true" signature="498:501" ph="select * fro... UTENTI" />
+            <marker date="1536331818762" expanded="true" signature="498:506" ph="select * fro... ${$tableName}" />
+            <marker date="1536331818762" expanded="true" signature="1368:1381" ph="SELECT * FRO... " />
+            <marker date="1536331818762" expanded="true" signature="1368:1382" ph="SELECT * FRO... ${$tableName}" />
+            <marker date="1536331818762" expanded="true" signature="1368:1398" ph="SELECT * FRO... ${$tableName}" />
+            <marker date="1536331818762" expanded="true" signature="1368:1404" ph="SELECT * FRO... ${$tableName}" />
+            <marker date="1536331818762" expanded="true" signature="1368:1405" ph="SELECT * FRO... ${$tableName}" />
+            <marker date="1536331818762" expanded="true" signature="1805:1818" ph="SELECT * FRO... " />
+            <marker date="1536331818762" expanded="true" signature="1805:1819" ph="SELECT * FRO... ${$tableName}" />
+            <marker date="1536331818762" expanded="true" signature="1805:1846" ph="SELECT * FRO... ${$tableName}" />
+            <marker date="1536331818762" expanded="true" signature="1805:1847" ph="SELECT * FRO... ${$tableName}" />
+            <marker date="1536331818762" expanded="true" signature="1805:1848" ph="SELECT * FRO... ${$tableName}" />
           </folding>
         </state>
       </provider>
@@ -306,22 +304,22 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Class/MySql.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="373">
-          <caret line="49" column="94" lean-forward="false" selection-start-line="49" selection-start-column="94" selection-end-line="49" selection-end-column="94" />
+        <state relative-caret-position="271">
+          <caret line="42" column="8" lean-forward="false" selection-start-line="42" selection-start-column="8" selection-end-line="42" selection-end-column="8" />
           <folding>
-            <marker date="1536331662184" expanded="true" signature="492:506" ph="SELECT * fro... ${$tableName}" />
-            <marker date="1536331662184" expanded="true" signature="498:501" ph="select * fro... UTENTI" />
-            <marker date="1536331662184" expanded="true" signature="498:506" ph="select * fro... ${$tableName}" />
-            <marker date="1536331662184" expanded="true" signature="1425:1438" ph="SELECT * FRO... " />
-            <marker date="1536331662184" expanded="true" signature="1425:1439" ph="SELECT * FRO... ${$tableName}" />
-            <marker date="1536331662184" expanded="true" signature="1425:1455" ph="SELECT * FRO... ${$tableName}" />
-            <marker date="1536331662184" expanded="true" signature="1425:1461" ph="SELECT * FRO... ${$tableName}" />
-            <marker date="1536331662184" expanded="true" signature="1425:1462" ph="SELECT * FRO... ${$tableName}" />
-            <marker date="1536331662184" expanded="true" signature="1862:1875" ph="SELECT * FRO... " />
-            <marker date="1536331662184" expanded="true" signature="1862:1876" ph="SELECT * FRO... ${$tableName}" />
-            <marker date="1536331662184" expanded="true" signature="1862:1903" ph="SELECT * FRO... ${$tableName}" />
-            <marker date="1536331662184" expanded="true" signature="1862:1904" ph="SELECT * FRO... ${$tableName}" />
-            <marker date="1536331662184" expanded="true" signature="1862:1905" ph="SELECT * FRO... ${$tableName}" />
+            <marker date="1536331818762" expanded="true" signature="492:506" ph="SELECT * fro... ${$tableName}" />
+            <marker date="1536331818762" expanded="true" signature="498:501" ph="select * fro... UTENTI" />
+            <marker date="1536331818762" expanded="true" signature="498:506" ph="select * fro... ${$tableName}" />
+            <marker date="1536331818762" expanded="true" signature="1368:1381" ph="SELECT * FRO... " />
+            <marker date="1536331818762" expanded="true" signature="1368:1382" ph="SELECT * FRO... ${$tableName}" />
+            <marker date="1536331818762" expanded="true" signature="1368:1398" ph="SELECT * FRO... ${$tableName}" />
+            <marker date="1536331818762" expanded="true" signature="1368:1404" ph="SELECT * FRO... ${$tableName}" />
+            <marker date="1536331818762" expanded="true" signature="1368:1405" ph="SELECT * FRO... ${$tableName}" />
+            <marker date="1536331818762" expanded="true" signature="1805:1818" ph="SELECT * FRO... " />
+            <marker date="1536331818762" expanded="true" signature="1805:1819" ph="SELECT * FRO... ${$tableName}" />
+            <marker date="1536331818762" expanded="true" signature="1805:1846" ph="SELECT * FRO... ${$tableName}" />
+            <marker date="1536331818762" expanded="true" signature="1805:1847" ph="SELECT * FRO... ${$tableName}" />
+            <marker date="1536331818762" expanded="true" signature="1805:1848" ph="SELECT * FRO... ${$tableName}" />
           </folding>
         </state>
       </provider>

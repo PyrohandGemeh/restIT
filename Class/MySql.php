@@ -31,17 +31,16 @@ class MySql {
     public function select($tableName, $fields) {
         $query = "SELECT ";
 
-        for($i = 0; $i < count($fields); $i++) {
-            if($fields[$i] !== "") {
-                $query .= $fields[$i];
+        $last = end($fields);
+        foreach ($fields as $field) {
+            $query .= $field;
 
-                if($i + 1 != count($fields))
-                    $query .= ", ";
-                else
-                    $query .= " ";
-            }
+            if($field !== $last)
+                $query .= ", ";
+            else
+                $query .= " ";
         }
-
+        
         $query .= "FROM ". $tableName;
         return  $this->connection->query($query);
     }
