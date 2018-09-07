@@ -75,4 +75,9 @@ class MySql {
         else
             echo "errore";
     }
+
+    public function findOneById($id, $tableName) {
+        $query = "SELECT * FROM ". $tableName ." WHERE id = ". $id;
+        return  $this->connection->query($query);
+    }
 }

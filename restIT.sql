@@ -18,14 +18,14 @@ USE `restit`;
 
 -- Dump della struttura di tabella restit.fasce_orarie
 CREATE TABLE IF NOT EXISTS `fasce_orarie` (
-  `id_fascia` int(11) NOT NULL,
+  `id` int(11) NOT NULL,
   `nome_fascia` varchar(50) NOT NULL,
-  PRIMARY KEY (`id_fascia`)
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
--- Dump dei dati della tabella restit.fasce_orarie: ~6 rows (circa)
+-- Dump dei dati della tabella restit.fasce_orarie: ~5 rows (circa)
 /*!40000 ALTER TABLE `fasce_orarie` DISABLE KEYS */;
-INSERT INTO `fasce_orarie` (`id_fascia`, `nome_fascia`) VALUES
+INSERT INTO `fasce_orarie` (`id`, `nome_fascia`) VALUES
 	(1, 'Colazione'),
 	(2, 'Brunch'),
 	(3, 'Pranzo'),
@@ -36,9 +36,9 @@ INSERT INTO `fasce_orarie` (`id_fascia`, `nome_fascia`) VALUES
 
 -- Dump della struttura di tabella restit.periodi
 CREATE TABLE IF NOT EXISTS `periodi` (
-  `id_periodo` int(11) NOT NULL,
+  `id` int(11) NOT NULL,
   `nome_periodo` varchar(50) NOT NULL,
-  PRIMARY KEY (`id_periodo`)
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- Dump dei dati della tabella restit.periodi: ~0 rows (circa)
@@ -59,7 +59,7 @@ CREATE TABLE IF NOT EXISTS `periodi_fasce` (
 
 -- Dump della struttura di tabella restit.prenotazioni
 CREATE TABLE IF NOT EXISTS `prenotazioni` (
-  `id_prenotazione` int(11) NOT NULL AUTO_INCREMENT,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `nome_cliente` varchar(50) NOT NULL,
   `tel_cliente` varchar(10) NOT NULL,
   `numero` int(11) NOT NULL,
@@ -72,7 +72,7 @@ CREATE TABLE IF NOT EXISTS `prenotazioni` (
   `scadenza` int(11) NOT NULL,
   `arrivo` int(11) NOT NULL,
   `chiusura` int(11) NOT NULL,
-  PRIMARY KEY (`id_prenotazione`)
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- Dump dei dati della tabella restit.prenotazioni: ~0 rows (circa)
@@ -81,7 +81,7 @@ CREATE TABLE IF NOT EXISTS `prenotazioni` (
 
 -- Dump della struttura di tabella restit.prenotazioni_revisionare
 CREATE TABLE IF NOT EXISTS `prenotazioni_revisionare` (
-  `id_prenotazione` int(11) NOT NULL AUTO_INCREMENT,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `nome_cliente` varchar(50) NOT NULL,
   `tel_cliente` varchar(10) NOT NULL,
   `numero` int(11) NOT NULL,
@@ -91,7 +91,7 @@ CREATE TABLE IF NOT EXISTS `prenotazioni_revisionare` (
   `id_stagione` int(11) NOT NULL,
   `id_fascia` int(11) NOT NULL,
   `note_prenotazione` text NOT NULL,
-  PRIMARY KEY (`id_prenotazione`)
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- Dump dei dati della tabella restit.prenotazioni_revisionare: ~0 rows (circa)
@@ -100,9 +100,9 @@ CREATE TABLE IF NOT EXISTS `prenotazioni_revisionare` (
 
 -- Dump della struttura di tabella restit.sale
 CREATE TABLE IF NOT EXISTS `sale` (
-  `id_sala` int(11) NOT NULL,
+  `id` int(11) NOT NULL,
   `nome_sala` varchar(50) NOT NULL,
-  PRIMARY KEY (`id_sala`)
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- Dump dei dati della tabella restit.sale: ~0 rows (circa)
@@ -111,7 +111,7 @@ CREATE TABLE IF NOT EXISTS `sale` (
 
 -- Dump della struttura di tabella restit.stagioni
 CREATE TABLE IF NOT EXISTS `stagioni` (
-  `id_stagione` int(11) NOT NULL,
+  `id` int(11) NOT NULL,
   `nome_stagione` varchar(50) NOT NULL,
   `inizio` varchar(50) NOT NULL,
   `fine` varchar(50) NOT NULL,
@@ -123,7 +123,7 @@ CREATE TABLE IF NOT EXISTS `stagioni` (
   `venerdi` int(11) NOT NULL,
   `sabato` int(11) NOT NULL,
   `domenica` int(11) NOT NULL,
-  PRIMARY KEY (`id_stagione`)
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- Dump dei dati della tabella restit.stagioni: ~0 rows (circa)
@@ -143,10 +143,10 @@ CREATE TABLE IF NOT EXISTS `stagioni_sale` (
 
 -- Dump della struttura di tabella restit.storico_clienti
 CREATE TABLE IF NOT EXISTS `storico_clienti` (
-  `id_storico` int(11) NOT NULL,
+  `id` int(11) NOT NULL,
   `nome_cliente` varchar(50) DEFAULT NULL,
   `tel_cliente` int(11) DEFAULT NULL,
-  PRIMARY KEY (`id_storico`)
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- Dump dei dati della tabella restit.storico_clienti: ~0 rows (circa)
@@ -168,14 +168,16 @@ CREATE TABLE IF NOT EXISTS `tavoli_sale` (
 
 -- Dump della struttura di tabella restit.utenti
 CREATE TABLE IF NOT EXISTS `utenti` (
-  `id_utente` int(11) NOT NULL AUTO_INCREMENT,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `username` varchar(50) NOT NULL,
   `password` varchar(50) NOT NULL,
-  PRIMARY KEY (`id_utente`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 
 -- Dump dei dati della tabella restit.utenti: ~0 rows (circa)
 /*!40000 ALTER TABLE `utenti` DISABLE KEYS */;
+INSERT INTO `utenti` (`id`, `username`, `password`) VALUES
+	(1, 'admin', '21232f297a57a5a743894a0e4a801fc3');
 /*!40000 ALTER TABLE `utenti` ENABLE KEYS */;
 
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
