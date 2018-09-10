@@ -6,7 +6,7 @@
  * Time: 17:41
  */
 
-    include "Class/MySql.php";
+    include "MySql.php";
 
     $conn = new MySql();
 
@@ -29,7 +29,6 @@
 
     $row = $conn->findOneById("utenti", 1)->fetch_assoc();
     echo "FIND BY ID: ". $row["username"] ."<br>";
-    */
 
     /*--------PROVE INSERT---------*/
     /*
