@@ -12,8 +12,9 @@
         $conn = new MySql();
         $username = /*$_POST["username"];*/ "admin";
         $password = /*$_POST["password"];*/ md5("admin");
+        $values = array('username' => $username,'password' => $password);
 
-        $findUser = $conn->selectAllWhere("utenti", array("username", "password"), array($username, $password), "=");
+        $findUser = $conn->selectAllWhere("utenti", $values, "=");
         if($findUser->num_rows == 1) {
             echo "ok";
             //setcookie('admin', $username, time()+2592000);

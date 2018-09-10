@@ -27,7 +27,7 @@
     $row = $conn->selectAllWhere("utenti", $values, "=")->fetch_assoc();
     echo "SELECT ALL WHERE: ". $row["username"] ."<br>";
 
-    $row = $conn->findOneById("utenti, 1)->fetch_assoc();
+    $row = $conn->findOneById("utenti", 1)->fetch_assoc();
     echo "FIND BY ID: ". $row["username"] ."<br>";
     */
 
@@ -45,8 +45,8 @@
     /*
     echo "DELETE ALL: ". $conn->deleteAll("utenti");
     echo "DELETE WHERE ID: ". $conn->deleteWhereId("utenti, 14);
-    */
 
+    */
     /*--------PROVE DELETE---------*/
     /*
     $values = [
@@ -56,6 +56,6 @@
 
     echo "UPDATE WHERE ID: ". $conn->updateWhereId("utenti", $values, 15);
     */
-    
+
     $conn->disconnect();
 ?>
