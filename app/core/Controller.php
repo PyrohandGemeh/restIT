@@ -6,6 +6,7 @@
  * Time: 15:59
  */
 
+
 class Controller {
 
     public function model($model) {

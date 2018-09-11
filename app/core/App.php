@@ -9,11 +9,15 @@
 class App {
 
     protected $controller = 'home';
-    protected $method = 'index';
+    protected $method = 'indexAction';
     protected $params = [];
 
-    public function __construct() {
+    public function __construct()
+    {
         $url = $this->parseUrl();
+
+        if ($_SERVER['REQUEST_METHOD'] == 'POST')
+            echo 'POST<br>';
 
         if(file_exists('../app/controllers/'. $url[0] .'.php')) {
             $this->controller = $url[0];
@@ -25,8 +29,9 @@ class App {
         $this->controller = new $this->controller;
 
         if(isset($url[1])) {
-            if(method_exists($this->controller, $url[1])) {
-                $this->method = $url[1];
+            if(method_exists($this->controller, $url[1]. 'Action')) {
+                $this->method = $url[1]. 'Action';
+                //echo $this->method;
                 unset($url[1]);
             }
         }

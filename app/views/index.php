@@ -6,4 +6,10 @@
  * Time: 16:49
  */
 
-echo "hello ". $data['name'];
+//echo $data['result'];
+
+?>
+
+<form action="esempioPost/1" method="post">
+    <input type="submit" name="bottone" value="Pigiami">
+</form>
