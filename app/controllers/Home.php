@@ -18,19 +18,10 @@ class Home extends Controller {
         /*$user = $this->model('User');
         $user->name = $name;*/
 
-        $conn = new MySql();
-
-        $result = $conn->selectAllWhere("utenti", ['username' => $name], "=");
-
-        if($result->num_rows)
-            $test = 'yes';
-        else
-            $test = 'no';
-
-        $this->view('index', ['result' => $test]);
+        $this->view('index', '');
     }
 
-    public function esempioPostAction($id) {
-        $this->view('post', ['id' => $id]);
+    public function esempioPostAction() {
+        $this->view('post','');
     }
 }

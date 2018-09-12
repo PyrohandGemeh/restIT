@@ -6,5 +6,8 @@
  * Time: 19:22
  */
 
-echo 'post funziona con parametro '. $data["id"];
+echo 'sei dentro <br><br>';
 ?>
+<form action="logout" method="post">
+    <input type="submit" name="bottone" value="Logout">
+</form>

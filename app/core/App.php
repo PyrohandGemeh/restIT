@@ -16,9 +16,6 @@ class App {
     {
         $url = $this->parseUrl();
 
-        if ($_SERVER['REQUEST_METHOD'] == 'POST')
-            echo 'POST<br>';
-
         if(file_exists('../app/controllers/'. $url[0] .'.php')) {
             $this->controller = $url[0];
             unset($url[0]);
@@ -29,8 +26,15 @@ class App {
         $this->controller = new $this->controller;
 
         if(isset($url[1])) {
-            if(method_exists($this->controller, $url[1]. 'Action')) {
-                $this->method = $url[1]. 'Action';
+            $methodName = $url[1];
+
+            if ($_SERVER['REQUEST_METHOD'] == 'POST')
+                $methodName .= 'Post';
+
+            //echo $methodName;
+
+            if(method_exists($this->controller, $methodName. 'Action')) {
+                $this->method = $methodName. 'Action';
                 //echo $this->method;
                 unset($url[1]);
             }
