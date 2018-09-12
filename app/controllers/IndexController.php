@@ -12,7 +12,7 @@ class Index extends Controller {
 
     public function indexAction() {
        $result = 'Questa sarà la pagina principale che vede il cliente';
-        $this->view('index', ['result' => $result]);
+       $this->view('index', ['result' => $result]);
     }
 
     public function testAction($name = '') {
