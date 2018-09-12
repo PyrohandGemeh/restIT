@@ -6,7 +6,7 @@
  * Time: 16:49
  */
 
-//echo $data['result'];
+echo $data['result'];
 
 ?>
 

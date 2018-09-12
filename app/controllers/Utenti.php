@@ -20,15 +20,15 @@ class Utenti extends Controller {
         $result = $conn->selectAllWhere("utenti", $array, "=");
 
         if($result->num_rows == 1) {
-            setcookie('admin', $username, time()+2592000);
+            //setcookie('admin', $username, time()+2592000);
             $this->view('post', ['result' => '']);
         }
         else
-            $this->view('index', ['result' => '']);
+            $this->view('index', ['result' => 'errore']);
     }
 
     public function logoutPostAction() {
-        setcookie('admin', null, time()-1);
-        header("Location: ../home");
+        //setcookie('admin', null, time()-1);
+        header("Location: ../index");
     }
 }

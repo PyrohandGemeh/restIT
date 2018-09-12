@@ -6,7 +6,7 @@
  * Time: 15:54
  */
 
-require_once '../app/init.php';
+require_once 'app/init.php';
 
 $app = new App();
 ?>
