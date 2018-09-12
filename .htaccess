@@ -3,7 +3,11 @@ RewriteEngine On
 
 RewriteBase /restIT
 
-RewriteCond %{REQUEST_FILENAME} !-d
+RewriteEngine on
 RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ app.php?url=$1 [L,QSA]
 
-RewriteRule ^(.*)$ app.php?url=$1 [QSA,L]
+
+
+
