@@ -22,6 +22,7 @@ class App {
         $this->controller = new $this->controller;
         if(isset($url[1])) {
             $methodName = $url[1];
+
             if ($_SERVER['REQUEST_METHOD'] == 'POST')
                 $methodName .= 'Post';
             //echo $methodName;
