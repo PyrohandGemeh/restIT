@@ -14,30 +14,44 @@ class App {
     {
         $url = $this->parseUrl();
 
+        //controlli sul controller
         if(file_exists('../app/controllers/'. $url[0] .'Controller.php')) {
             $this->controller = $url[0];
             unset($url[0]);
         }
-        require_once '../app/controllers/'. $this->controller .'Controller.php';
-        $this->controller = new $this->controller;
+        else
+            $this->controller = 'errore';
+
+        //controlli sul metodo
         if(isset($url[1])) {
             $methodName = $url[1];
 
             if ($_SERVER['REQUEST_METHOD'] == 'POST')
                 $methodName .= 'Post';
-            //echo $methodName;
+
             if(method_exists($this->controller, $methodName. 'Action')) {
                 $this->method = $methodName. 'Action';
                 //echo $this->method;
                 unset($url[1]);
             }
+            else {
+                $this->controller = 'errore';
+            }
         }
+
+        require_once '../app/controllers/'. $this->controller .'Controller.php';
+
+        $this->controller = new $this->controller;
+
         $this->params = $url ? array_values($url) : [];
         call_user_func_array([$this->controller, $this->method], $this->params);
     }
     public function parseUrl() {
-        if(isset($_GET['url']))
+        if(isset($_GET['url'])) {
             return $url = explode('/', filter_var(rtrim($_GET['url'], '/'), FILTER_SANITIZE_URL));
+        }
+        else
+            return $url = array('index');
 
     }
 }
