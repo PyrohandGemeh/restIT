@@ -12,15 +12,34 @@ class App {
     protected $params = [];
     public function __construct()
     {
+        session_start();
+
         $url = $this->parseUrl();
 
+        $path = '../app/controllers/';
+
+        if(isset($_SESSION['login']) && $url[0] !== 'login') {
+            $path .= 'admin/';
+            if(isset($url[1])) {
+                $url[0] = $url[1];
+            }
+        }
+
+        //echo $path . $url[0] .'Controller.php';
+
         //controlli sul controller
-        if(file_exists('../app/controllers/'. $url[0] .'Controller.php')) {
+        if(file_exists($path . $url[0] .'Controller.php')) {
             $this->controller = $url[0];
             unset($url[0]);
         }
-        else
+        else {
+            $path = '../app/controllers/';
             $this->controller = 'errore';
+        }
+
+        //echo $path . $this->controller .'Controller.php';
+        require_once $path . $this->controller .'Controller.php';
+        $this->controller = new $this->controller;
 
         //controlli sul metodo
         if(isset($url[1])) {
@@ -34,24 +53,22 @@ class App {
                 //echo $this->method;
                 unset($url[1]);
             }
-            else {
+            else{
                 $this->controller = 'errore';
+                require_once $path . $this->controller .'Controller.php';
+                $this->controller = new $this->controller;
             }
         }
-
-        require_once '../app/controllers/'. $this->controller .'Controller.php';
-
-        $this->controller = new $this->controller;
 
         $this->params = $url ? array_values($url) : [];
         call_user_func_array([$this->controller, $this->method], $this->params);
     }
+
     public function parseUrl() {
         if(isset($_GET['url'])) {
             return $url = explode('/', filter_var(rtrim($_GET['url'], '/'), FILTER_SANITIZE_URL));
         }
         else
             return $url = array('index');
-
     }
 }

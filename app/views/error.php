@@ -6,6 +6,6 @@
  * Time: 14:52
  */
 
-echo "pagina 404";
+echo 'error 404';
 
 ?>

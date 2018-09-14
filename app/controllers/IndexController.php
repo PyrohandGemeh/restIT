@@ -11,8 +11,9 @@ require_once __DIR__ . '/../class/MySql.php';
 class Index extends Controller {
 
     public function indexAction() {
-       $result = 'Questa sarà la pagina principale che vede il cliente';
-       $this->view('index', ['result' => $result]);
+        $result = 'Questa sarà la pagina principale che vede il cliente';
+        $this->view('index', ['result' => $result]);
+
     }
 
     public function testAction($name = '') {

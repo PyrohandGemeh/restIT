@@ -8,9 +8,10 @@
 
 require_once __DIR__ . '/../class/MySql.php';
 
+
 class Errore extends Controller {
 
     public function indexAction() {
-       $this->view('error', ['result' => '']);
+        $this->view('error', ['result' => '']);
     }
 }

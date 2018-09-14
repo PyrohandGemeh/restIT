@@ -15,6 +15,16 @@ class Controller {
     }
 
     public function view($view, $data =[]) {
-        require_once '../app/views/'. $view .'.php';
+        if($view === 'error') {
+                require_once '../app/views/' . $view . '.php';
+
+        }
+        else {
+            if (isset($_SESSION['login'])) {
+                require_once '../app/views/admin/' . $view . '.php';
+            } else
+                require_once '../app/views/' . $view . '.php';
+        }
+
     }
 }

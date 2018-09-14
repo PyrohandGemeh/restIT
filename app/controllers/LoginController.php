@@ -2,25 +2,18 @@
 /**
  * Created by PhpStorm.
  * User: Alessandra
- * Date: 12/09/2018
- * Time: 14:33
+ * Date: 13/09/2018
+ * Time: 15:27
  */
 
 require_once __DIR__ . '/../class/MySql.php';
 
-class Utenti extends Controller {
-
-    public function indexAction() {
-        $conn = new MySql();
-
-        $result = $conn->selectAll("utenti");
-
-        if ($result)
-            $this->view('utenti', $result);
-    }
+class Login extends Controller {
 
     public function loginPostAction() {
+        session_start();
         $conn = new MySql();
+
 
         $username = $_POST['username'];
         $password = md5($_POST['password']);
@@ -29,15 +22,19 @@ class Utenti extends Controller {
         $result = $conn->selectAllWhere("utenti", $array, "=");
 
         if($result->num_rows == 1) {
-            //setcookie('admin', $username, time()+2592000);
-            $this->view('post', ['result' => '']);
+            //setcookie('login', $username, time()+2592000);
+            //echo $_COOKIE['admin'];
+            $_SESSION['login'] = $username;
+            header("Location: ../");
         }
         else
             $this->view('index', ['result' => 'errore']);
     }
 
     public function logoutPostAction() {
-        //setcookie('admin', null, time()-1);
+        session_start();
+        //setcookie('login', null, time()-1);
+        unset($_SESSION['login']);
         header("Location: ../");
     }
 }
