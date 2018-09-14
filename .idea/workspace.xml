@@ -2,18 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fc3533d0-c936-4d61-a1e8-fd47d4da0506" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/app/controllers/admin/IndexController.php" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/app/controllers/admin/UtentiController.php" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/ErroreController.php" afterPath="$PROJECT_DIR$/app/controllers/ErroreController.php" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/IndexController.php" afterPath="$PROJECT_DIR$/app/controllers/IndexController.php" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/UtentiController.php" afterPath="$PROJECT_DIR$/app/controllers/LoginController.php" />
       <change beforePath="$PROJECT_DIR$/app/core/App.php" afterPath="$PROJECT_DIR$/app/core/App.php" />
-      <change beforePath="$PROJECT_DIR$/app/core/Controller.php" afterPath="$PROJECT_DIR$/app/core/Controller.php" />
-      <change beforePath="$PROJECT_DIR$/app/views/error.php" afterPath="$PROJECT_DIR$/app/views/error.php" />
-      <change beforePath="$PROJECT_DIR$/app/views/index.php" afterPath="$PROJECT_DIR$/app/views/index.php" />
-      <change beforePath="$PROJECT_DIR$/app/views/post.php" afterPath="$PROJECT_DIR$/app/views/admin/index.php" />
-      <change beforePath="$PROJECT_DIR$/app/views/utenti.php" afterPath="$PROJECT_DIR$/app/views/admin/utenti.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -49,7 +39,7 @@
       <file leaf-file-name="App.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/core/App.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="323">
+            <state relative-caret-position="527">
               <caret line="39" column="10" lean-forward="false" selection-start-line="39" selection-start-column="10" selection-end-line="39" selection-end-column="10" />
               <folding />
             </state>
@@ -324,12 +314,12 @@
       <workItem from="1536773728351" duration="1088000" />
       <workItem from="1536833281266" duration="15406000" />
       <workItem from="1536857156639" duration="855000" />
-      <workItem from="1536918054623" duration="4038000" />
+      <workItem from="1536918054623" duration="4248000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="62913000" />
+    <option name="totallyTimeSpent" value="63123000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="0" width="974" height="1047" extended-state="0" />
@@ -610,7 +600,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/core/App.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
+        <state relative-caret-position="527">
           <caret line="39" column="10" lean-forward="false" selection-start-line="39" selection-start-column="10" selection-end-line="39" selection-end-column="10" />
           <folding />
         </state>

@@ -19,10 +19,10 @@ class App {
         $path = '../app/controllers/';
 
         if(isset($_SESSION['login']) && $url[0] !== 'login') {
-            $path .= 'admin/';
+            $path .= 'admin/';/*
             if(isset($url[1])) {
                 $url[0] = $url[1];
-            }
+            }*/
         }
 
         //echo $path . $url[0] .'Controller.php';
@@ -55,6 +55,7 @@ class App {
             }
             else{
                 $this->controller = 'errore';
+                $path = '../app/controllers/';
                 require_once $path . $this->controller .'Controller.php';
                 $this->controller = new $this->controller;
             }
