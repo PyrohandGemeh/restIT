@@ -20,7 +20,7 @@ class Controller {
 
         }
         else {
-            if (isset($_SESSION['login'])) {
+            if (isset($_COOKIE['login'])) {
                 require_once '../app/views/admin/' . $view . '.php';
             } else
                 require_once '../app/views/' . $view . '.php';

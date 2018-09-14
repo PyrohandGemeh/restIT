@@ -22,9 +22,9 @@ class Login extends Controller {
         $result = $conn->selectAllWhere("utenti", $array, "=");
 
         if($result->num_rows == 1) {
-            //setcookie('login', $username, time()+2592000);
+            setcookie('login', $username, time()+2592000, '/');
             //echo $_COOKIE['admin'];
-            $_SESSION['login'] = $username;
+            //$_SESSION['login'] = $username;
             header("Location: ../");
         }
         else
@@ -33,8 +33,8 @@ class Login extends Controller {
 
     public function logoutPostAction() {
         session_start();
-        //setcookie('login', null, time()-1);
-        unset($_SESSION['login']);
+        setcookie('login', null, time()-1, '/');
+        //unset($_SESSION['login']);
         header("Location: ../");
     }
 }

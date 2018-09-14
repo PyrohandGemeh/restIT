@@ -8,7 +8,7 @@
 
 //echo $data['result'] .'<br><br>';
 
-if(isset($_SESSION['login'])) {
+if(isset($_COOKIE['login'])) {
     echo 'sei dentro <br><br>';
     ?>
     <form action="login/logout" method="post">

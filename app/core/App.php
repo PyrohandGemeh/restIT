@@ -18,7 +18,7 @@ class App {
 
         $path = '../app/controllers/';
 
-        if(isset($_SESSION['login']) && $url[0] !== 'login') {
+        if(isset($_COOKIE['login']) && $url[0] !== 'login') {
             $path .= 'admin/';/*
             if(isset($url[1])) {
                 $url[0] = $url[1];
