@@ -24,12 +24,10 @@ class Login extends Controller {
             setcookie('login', $username, time()+2592000, '/');
             //echo $_COOKIE['admin'];
             //$_SESSION['login'] = $username;
-            header("Location: ../");
-        }
-        else {
-            header("Location: ../errore/index/credenziali sbagliate" );
+
         }
 
+        header("Location: ../");
     }
 
     public function logoutPostAction() {

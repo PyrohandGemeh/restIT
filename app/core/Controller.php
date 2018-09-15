@@ -15,6 +15,7 @@ class Controller {
     }
 
     public function view($view, $data =[]) {
+
         if($view === 'errore') {
                 require_once '../app/views/' . $view . '.php';
 

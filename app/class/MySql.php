@@ -62,6 +62,20 @@ class MySql {
         return $this->connection->query($query);
     }
 
+    public function selectAllWhereField($tableName, $fields, $operator) {
+        $query = 'SELECT * FROM ' . $tableName . ' WHERE ';
+
+        $last = end($fields);
+        foreach ($fields as $field1 => $field2) {
+            $query .= $field1 . ' ' . $operator . ' ' . $field2 . ' ';
+
+            if ($field2 !== $last)
+                $query .= " AND ";
+        }
+
+        return $this->connection->query($query);
+    }
+
     public function findOneById($tableName, $id) {
         $query = "SELECT * FROM " . $tableName . " WHERE id = " . $id;
         return $this->connection->query($query);

@@ -6,10 +6,7 @@
  * Time: 14:52
  */
 
-if(!empty($data['result']))
-    print_r($data['result']);
-else
-    echo 'error 404';
+echo 'Error 404: impossibile accedere alla pagina o la pagina cercata non esiste';
 
 echo '<br><br>';
 ?>
