@@ -11,7 +11,6 @@ require_once __DIR__ . '/../class/MySql.php';
 class Login extends Controller {
 
     public function loginPostAction() {
-        session_start();
         $conn = new MySql();
 
 
@@ -27,12 +26,13 @@ class Login extends Controller {
             //$_SESSION['login'] = $username;
             header("Location: ../");
         }
-        else
-            $this->view('index', ['result' => 'errore']);
+        else {
+            header("Location: ../errore/index/credenziali sbagliate" );
+        }
+
     }
 
     public function logoutPostAction() {
-        session_start();
         setcookie('login', null, time()-1, '/');
         //unset($_SESSION['login']);
         header("Location: ../");

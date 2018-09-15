@@ -9,12 +9,12 @@
 //echo $data['result'] .'<br><br>';
 
 if(isset($_COOKIE['login'])) {
-    echo 'sei dentro <br><br>';
     ?>
+    <form action="utenti" method="post">
+        <input type="submit" name="bottone" value="Utenti">
+    </form>
     <form action="login/logout" method="post">
         <input type="submit" name="bottone" value="Logout">
     </form>
     <?php
 }
-else
-    echo 'hJASAHFJKajksfdA';

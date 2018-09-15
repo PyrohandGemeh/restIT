@@ -6,6 +6,11 @@
  * Time: 16:49
  */
 
+if(!empty($data['result'])) {
+    print_r($data['result']) .'<br><br>';
+
+}
+
 ?>
 
 <form action="login/login" method="post" name="login">

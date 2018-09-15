@@ -10,9 +10,11 @@ class App {
     protected $controller = 'index';
     protected $method = 'indexAction';
     protected $params = [];
+
+
     public function __construct()
     {
-        session_start();
+        define('ROOT','/restIT');
 
         $url = $this->parseUrl();
 
