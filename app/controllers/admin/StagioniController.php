@@ -14,7 +14,7 @@ class Stagioni extends Controller {
         $conn = new MySql();
 
         $values = ['inizio' => 'fine'];
-        $result = $conn->selectAllWhere('stagioni', $values, '<>');
+        $result = $conn->selectAllWhereField('stagioni', $values, '<>');
 
         if($result)
             $this->view('stagioni', $result);
