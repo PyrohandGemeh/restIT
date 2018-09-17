@@ -27,4 +27,5 @@ class Sale extends Controller {
         if($result)
             $this->view('sale', 'edit', $result);
     }
+    
 }
