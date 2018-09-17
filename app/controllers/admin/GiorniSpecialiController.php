@@ -19,4 +19,13 @@ class GiorniSpeciali extends Controller {
         if($result)
             $this->view('giorniSpeciali', 'index', $result);
     }
+
+    public function editAction($id){
+        $conn = new MySql();
+
+        $result = $conn->findOneById("stagioni", $id);
+
+        if($result)
+            $this->view('giornispeciali', 'edit', $result);
+    }
 }

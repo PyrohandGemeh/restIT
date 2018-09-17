@@ -18,4 +18,14 @@ class Prenotazioni extends Controller {
         if($result)
             $this->view('prenotazioni', 'index', $result);
     }
+
+    public function editAction($id)
+    {
+        $conn = new MySql();
+
+        $result = $conn->findOneById("prenotazioni", $id);
+
+        if ($result)
+            $this->view('prenotazioni', 'edit', $result);
+    }
 }

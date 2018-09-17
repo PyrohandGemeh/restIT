@@ -19,4 +19,13 @@ class Stagioni extends Controller {
         if($result)
             $this->view('stagioni', 'index', $result);
     }
+
+    public function editAction($id){
+        $conn = new MySql();
+
+        $result = $conn->findOneById("stagioni", $id);
+
+        if($result)
+            $this->view('stagioni', 'edit', $result);
+    }
 }

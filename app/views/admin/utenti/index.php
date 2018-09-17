@@ -7,7 +7,11 @@
  */
 
 while($row = $data->fetch_assoc()) {
-    echo $row["username"] ." ". $row["password"] ." <br>";
+    echo $row["username"] ." ". $row["password"];
+    ?>
+    <a href=<?php echo ROOT .'/utenti/edit/'. $row['id'] ?>>Edita</a>
+    <?php
+    echo '<br>';
 }
 ?>
 

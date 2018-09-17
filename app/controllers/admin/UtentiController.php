@@ -18,4 +18,13 @@ class Utenti extends Controller {
         if($result)
             $this->view('utenti', 'index', $result);
     }
+
+    public function editAction($id){
+        $conn = new MySql();
+
+        $result = $conn->findOneById("utenti", $id);
+
+        if($result)
+            $this->view('utenti', 'edit', $result);
+    }
 }
