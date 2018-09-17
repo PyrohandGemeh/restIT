@@ -19,6 +19,26 @@ class Utenti extends Controller {
             $this->view('utenti', 'index', $result);
     }
 
+    public function addAction(){
+        $this->view('utenti', 'add', '');
+    }
+
+    public function addPostAction(){
+        $conn = new MySql();
+
+        $username = $_POST['username'];
+        $password = md5($_POST['password']);
+        $array = array('username' => $username);
+
+        $result = $conn->selectAllWhere("utenti", $array, "=");
+
+        if($result->num_rows == 0){
+            $array = array('username' => $username, 'password' =>  $password);
+            $conn->insert("utenti", $array);
+            header("Location: ". ROOT . '/utenti');
+        }
+    }
+
     public function editAction($id){
         $conn = new MySql();
 
@@ -26,5 +46,15 @@ class Utenti extends Controller {
 
         if($result)
             $this->view('utenti', 'edit', $result);
+    }
+
+    public function removeAction($id){
+        $conn = new MySql();
+
+        $result = $conn->deleteWhereId("utenti", $id);
+
+        if($result)
+            header("Location: ". ROOT . '/utenti');
+
     }
 }

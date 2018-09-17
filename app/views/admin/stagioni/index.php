@@ -11,7 +11,4 @@ while($row = $data->fetch_assoc()) {
     echo $row["nome_stagione"] ." ". $row["inizio"] ." ". $row["fine"] ." <br>";
 }
 ?>
-
-<form action="<?php echo ROOT ?>" method="post">
-    <input type="submit" name="bottone" value="Home">
-</form>
+<a href="<?php echo ROOT ?>">Home</a>
