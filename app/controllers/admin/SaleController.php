@@ -16,6 +16,6 @@ class Sale extends Controller {
         $result = $conn->selectAll("sale");
 
         if($result)
-            $this->view('sale', $result);
+            $this->view('sale', 'index', $result);
     }
 }

@@ -9,6 +9,6 @@
 class Index extends Controller
 {
     public function indexAction() {
-        $this->view('index', ['result' => '']);
+        $this->view('index', '', ['result' => '']);
     }
 }

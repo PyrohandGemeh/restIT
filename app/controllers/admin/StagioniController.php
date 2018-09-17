@@ -17,6 +17,6 @@ class Stagioni extends Controller {
         $result = $conn->selectAllWhereField('stagioni', $values, '<>');
 
         if($result)
-            $this->view('stagioni', $result);
+            $this->view('stagioni', 'index', $result);
     }
 }

@@ -17,6 +17,6 @@ class GiorniSpeciali extends Controller {
         $result = $conn->selectAllWhereField('stagioni', $values, '=');
 
         if($result)
-            $this->view('giorni_speciali', $result);
+            $this->view('giorniSpeciali', 'index', $result);
     }
 }

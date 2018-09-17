@@ -16,6 +16,6 @@ class Prenotazioni extends Controller {
         $result = $conn->selectAll("prenotazioni");
 
         if($result)
-            $this->view('prenotazioni', $result);
+            $this->view('prenotazioni', 'index', $result);
     }
 }

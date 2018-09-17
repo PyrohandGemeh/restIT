@@ -16,6 +16,6 @@ class Utenti extends Controller {
         $result = $conn->selectAll("utenti");
 
         if($result)
-            $this->view('utenti', $result);
+            $this->view('utenti', 'index', $result);
     }
 }
