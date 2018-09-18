@@ -1,11 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
+<<<<<<< HEAD
+    <list default="true" id="fc3533d0-c936-4d61-a1e8-fd47d4da0506" name="Default" comment="" />
+=======
     <list default="true" id="fc3533d0-c936-4d61-a1e8-fd47d4da0506" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/class/MySql.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/class/MySql.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/views/admin/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/admin/index.php" afterDir="false" />
     </list>
+>>>>>>> 15d34b1a1256b9d557cce6bbb4c7bdfbb15c1c28
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -187,11 +191,24 @@
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
+<<<<<<< HEAD
+  <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
+  <component name="ProjectFrameBounds" extendedState="7">
+    <option name="x" value="-7" />
+    <option name="width" value="974" />
+=======
   <component name="ProjectFrameBounds" extendedState="6">
+<<<<<<< HEAD
     <option name="x" value="-11" />
     <option name="y" value="-11" />
     <option name="width" value="1943" />
     <option name="height" value="1043" />
+=======
+    <option name="x" value="-9" />
+    <option name="width" value="975" />
+>>>>>>> 15d34b1a1256b9d557cce6bbb4c7bdfbb15c1c28
+    <option name="height" value="1047" />
+>>>>>>> ad1290afc7e4c1583531bf88ec7fa9ffd9472e4f
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
@@ -334,23 +351,42 @@
       <workItem from="1536918054623" duration="7814000" />
       <workItem from="1537003749192" duration="7590000" />
       <workItem from="1537027085809" duration="1053000" />
+<<<<<<< HEAD
+      <workItem from="1537119079076" duration="240000" />
+=======
       <workItem from="1537119079076" duration="132000" />
       <workItem from="1537250394109" duration="379000" />
       <workItem from="1537200198886" duration="1310000" />
       <workItem from="1537201765785" duration="3888000" />
       <workItem from="1537210424794" duration="2980000" />
       <workItem from="1537260585131" duration="3688000" />
+<<<<<<< HEAD
       <workItem from="1537265070524" duration="1698000" />
       <workItem from="1537285115248" duration="354000" />
+=======
+      <workItem from="1537265070524" duration="1098000" />
+>>>>>>> 15d34b1a1256b9d557cce6bbb4c7bdfbb15c1c28
+>>>>>>> ad1290afc7e4c1583531bf88ec7fa9ffd9472e4f
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
+<<<<<<< HEAD
     <option name="totallyTimeSpent" value="89761000" />
+=======
+<<<<<<< HEAD
+    <option name="totallyTimeSpent" value="75572000" />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="7" />
+=======
+    <option name="totallyTimeSpent" value="88807000" />
+>>>>>>> ad1290afc7e4c1583531bf88ec7fa9ffd9472e4f
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1295" height="695" extended-state="6" />
     <editor active="true" />
+>>>>>>> 15d34b1a1256b9d557cce6bbb4c7bdfbb15c1c28
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2340081" />
       <window_info id="Structure" order="1" weight="0.25" />
