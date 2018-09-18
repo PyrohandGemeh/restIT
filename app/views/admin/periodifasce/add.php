@@ -8,9 +8,8 @@
 
 ?>
 
-<form action="<?php echo ROOT .'/periodi/add' ?>" method="post">
-    <input type="text" name="nome" placeholder="nome">
-    <input type="submit" name="login" value="Inserisci">
+<form action="<?php echo ROOT .'/periodifasce/add' ?>" method="post">
+    Aggiunta periodo_fascia
 </form>
 
-<a href="<?php echo ROOT .'/periodi' ?>">Home</a>
+<a href="<?php echo ROOT .'/periodifasce' ?>">Home</a>

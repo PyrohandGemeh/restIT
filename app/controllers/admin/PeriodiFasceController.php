@@ -12,11 +12,20 @@ class PeriodiFasce extends Controller {
 
     public function indexAction() {
         $conn = new MySql();
-        $tables = array(get_class(), 'periodi', 'fasceorarie');
 
-        $result = $conn->selectAllNaturalJoin($tables);
 
         if($result)
             $this->view(get_class(), 'index', $result);
+    }
+
+    public function addAction(){
+        $this->view(get_class(), 'add', '');
+    }
+
+    public function editAction(){
+        $conn = new MySql();
+
+
+
     }
 }

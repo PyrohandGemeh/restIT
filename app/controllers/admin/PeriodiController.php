@@ -33,7 +33,6 @@ class Periodi extends Controller {
 
         if($result->num_rows == 0){
             $conn->insert(get_class(), $array);
-            header("Location: ". ROOT . '/' . get_class());
         }
     }
 
@@ -53,16 +52,11 @@ class Periodi extends Controller {
         $array = array('nome_periodo' => $nome);
 
         $conn->updateWhereId(get_class(), $array, $id);
-
-        header("Location: ". ROOT . '/' . get_class());
     }
 
     public function removeAction($id){
         $conn = new MySql();
 
         $conn->deleteWhereId(get_class(), $id);
-
-        header("Location: ". ROOT . '/' . get_class());
-
     }
 }

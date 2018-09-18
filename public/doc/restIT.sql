@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Creato il: Set 18, 2018 alle 18:01
+-- Creato il: Set 18, 2018 alle 18:23
 -- Versione del server: 10.1.35-MariaDB
 -- Versione PHP: 7.2.9
 
@@ -29,7 +29,7 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `fasceorarie` (
-  `id_fascia` int(11) NOT NULL,
+  `id` int(11) NOT NULL,
   `nome_fascia` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -37,7 +37,7 @@ CREATE TABLE `fasceorarie` (
 -- Dump dei dati per la tabella `fasceorarie`
 --
 
-INSERT INTO `fasceorarie` (`id_fascia`, `nome_fascia`) VALUES
+INSERT INTO `fasceorarie` (`id`, `nome_fascia`) VALUES
 (1, 'Colazione'),
 (2, 'Brunch'),
 (3, 'Pranzo'),
@@ -52,7 +52,7 @@ INSERT INTO `fasceorarie` (`id_fascia`, `nome_fascia`) VALUES
 --
 
 CREATE TABLE `periodi` (
-  `id_periodo` int(11) NOT NULL,
+  `id` int(11) NOT NULL,
   `nome_periodo` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -60,7 +60,7 @@ CREATE TABLE `periodi` (
 -- Dump dei dati per la tabella `periodi`
 --
 
-INSERT INTO `periodi` (`id_periodo`, `nome_periodo`) VALUES
+INSERT INTO `periodi` (`id`, `nome_periodo`) VALUES
 (1, 'Pranzo');
 
 -- --------------------------------------------------------
@@ -89,7 +89,7 @@ INSERT INTO `periodifasce` (`id_periodo`, `id_fascia`, `orario`) VALUES
 --
 
 CREATE TABLE `prenotazioni` (
-  `id_prenotazione` int(11) NOT NULL,
+  `id` int(11) NOT NULL,
   `nome_cliente` varchar(50) NOT NULL,
   `tel_cliente` varchar(10) NOT NULL,
   `numero` int(11) NOT NULL,
@@ -111,7 +111,7 @@ CREATE TABLE `prenotazioni` (
 --
 
 CREATE TABLE `prenotazionirevisionare` (
-  `id_prenotazione` int(11) NOT NULL,
+  `id` int(11) NOT NULL,
   `nome_cliente` varchar(50) NOT NULL,
   `tel_cliente` varchar(10) NOT NULL,
   `numero` int(11) NOT NULL,
@@ -130,7 +130,7 @@ CREATE TABLE `prenotazionirevisionare` (
 --
 
 CREATE TABLE `sale` (
-  `id_sala` int(11) NOT NULL,
+  `id` int(11) NOT NULL,
   `nome_sala` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -141,7 +141,7 @@ CREATE TABLE `sale` (
 --
 
 CREATE TABLE `stagioni` (
-  `id_stagione` int(11) NOT NULL,
+  `id` int(11) NOT NULL,
   `nome_stagione` varchar(50) NOT NULL,
   `inizio` varchar(50) NOT NULL,
   `fine` varchar(50) NOT NULL,
@@ -198,7 +198,7 @@ CREATE TABLE `tavolisale` (
 --
 
 CREATE TABLE `utenti` (
-  `id_utente` int(11) NOT NULL,
+  `id` int(11) NOT NULL,
   `username` varchar(50) NOT NULL,
   `password` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -207,8 +207,9 @@ CREATE TABLE `utenti` (
 -- Dump dei dati per la tabella `utenti`
 --
 
-INSERT INTO `utenti` (`id_utente`, `username`, `password`) VALUES
-(1, 'admin', '21232f297a57a5a743894a0e4a801fc3');
+INSERT INTO `utenti` (`id`, `username`, `password`) VALUES
+(1, 'admin', '21232f297a57a5a743894a0e4a801fc3'),
+(2, 'ale', 'f7a3803365a55b197a3b43bc64aacc13');
 
 --
 -- Indici per le tabelle scaricate
@@ -218,13 +219,13 @@ INSERT INTO `utenti` (`id_utente`, `username`, `password`) VALUES
 -- Indici per le tabelle `fasceorarie`
 --
 ALTER TABLE `fasceorarie`
-  ADD PRIMARY KEY (`id_fascia`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indici per le tabelle `periodi`
 --
 ALTER TABLE `periodi`
-  ADD PRIMARY KEY (`id_periodo`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indici per le tabelle `periodifasce`
@@ -236,25 +237,25 @@ ALTER TABLE `periodifasce`
 -- Indici per le tabelle `prenotazioni`
 --
 ALTER TABLE `prenotazioni`
-  ADD PRIMARY KEY (`id_prenotazione`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indici per le tabelle `prenotazionirevisionare`
 --
 ALTER TABLE `prenotazionirevisionare`
-  ADD PRIMARY KEY (`id_prenotazione`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indici per le tabelle `sale`
 --
 ALTER TABLE `sale`
-  ADD PRIMARY KEY (`id_sala`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indici per le tabelle `stagioni`
 --
 ALTER TABLE `stagioni`
-  ADD PRIMARY KEY (`id_stagione`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indici per le tabelle `stagionisale`
@@ -278,7 +279,7 @@ ALTER TABLE `tavolisale`
 -- Indici per le tabelle `utenti`
 --
 ALTER TABLE `utenti`
-  ADD PRIMARY KEY (`id_utente`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- AUTO_INCREMENT per le tabelle scaricate
@@ -288,25 +289,25 @@ ALTER TABLE `utenti`
 -- AUTO_INCREMENT per la tabella `periodi`
 --
 ALTER TABLE `periodi`
-  MODIFY `id_periodo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT per la tabella `prenotazioni`
 --
 ALTER TABLE `prenotazioni`
-  MODIFY `id_prenotazione` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT per la tabella `prenotazionirevisionare`
 --
 ALTER TABLE `prenotazionirevisionare`
-  MODIFY `id_prenotazione` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT per la tabella `utenti`
 --
 ALTER TABLE `utenti`
-  MODIFY `id_utente` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
