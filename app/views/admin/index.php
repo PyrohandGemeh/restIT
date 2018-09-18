@@ -13,6 +13,9 @@ if(isset($_COOKIE['login'])) {
     <form action="utenti" method="post">
         <input type="submit" name="bottone" value="Utenti">
     </form>
+    <form action="periodi" method="post">
+        <input type="submit" name="bottone" value="Periodi">
+    </form>
     <form action="sale" method="post">
         <input type="submit" name="bottone" value="Sale">
     </form>

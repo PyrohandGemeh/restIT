@@ -124,13 +124,16 @@ class MySql {
             return false;
     }
 
-    public function deleteWhereId($id, $tableName) {
-        if ($this->findOneById($id, $tableName)->num_rows == 1) {
+    public function deleteWhereId($tableName, $id) {
+        if ($this->findOneById($tableName, $id)->num_rows == 1) {
             $query = 'DELETE FROM ' . $tableName . ' WHERE id = ' . $id;
 
             $result = $this->connection->query($query);
-            if ($result)
+            if ($result) {
+                echo "ciao";
                 return true;
+            }
+
         }
 
         return false;

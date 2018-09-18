@@ -2,13 +2,13 @@
 /**
  * Created by PhpStorm.
  * User: Alessandra
- * Date: 12/09/2018
- * Time: 14:33
+ * Date: 15/09/2018
+ * Time: 15:44
  */
 
 require_once __DIR__ . '/../../class/MySql.php';
 
-class Utenti extends Controller {
+class Periodi extends Controller {
 
     public function indexAction() {
         $conn = new MySql();
@@ -26,14 +26,12 @@ class Utenti extends Controller {
     public function addPostAction(){
         $conn = new MySql();
 
-        $username = $_POST['username'];
-        $password = md5($_POST['password']);
-        $array = array('username' => $username);
+        $nome = $_POST['nome'];
+        $array = array('nome_periodo' => $nome);
 
         $result = $conn->selectAllWhere(get_class(), $array, "=");
 
         if($result->num_rows == 0){
-            $array = array('username' => $username, 'password' =>  $password);
             $conn->insert(get_class(), $array);
             header("Location: ". ROOT . '/' . get_class());
         }
@@ -48,13 +46,23 @@ class Utenti extends Controller {
             $this->view(get_class(), 'edit', $result);
     }
 
+    public function editPostAction($id){
+        $conn = new MySql();
+
+        $nome = $_POST['nome'];
+        $array = array('nome_periodo' => $nome);
+
+        $conn->updateWhereId(get_class(), $array, $id);
+
+        header("Location: ". ROOT . '/' . get_class());
+    }
+
     public function removeAction($id){
         $conn = new MySql();
 
-        $result = $conn->deleteWhereId(get_class(), $id);
+        $conn->deleteWhereId(get_class(), $id);
 
-        if($result)
-            header("Location: ". ROOT . '/' . get_class());
+        header("Location: ". ROOT . '/' . get_class());
 
     }
 }

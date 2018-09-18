@@ -11,7 +11,7 @@ require_once __DIR__ . '/../class/MySql.php';
 class Index extends Controller {
 
     public function indexAction($data = []) {
-        $this->view('index', ['result' => $data]);
+        $this->view(get_class(), '', ['result' => $data]);
 
     }
 }

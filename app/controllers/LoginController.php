@@ -13,7 +13,6 @@ class Login extends Controller {
     public function loginPostAction() {
         $conn = new MySql();
 
-
         $username = $_POST['username'];
         $password = md5($_POST['password']);
         $array = array('username' => $username, 'password' => $password);

@@ -14,17 +14,27 @@ class Controller {
         return new $model();
     }
 
-    public function view($view, $data =[]) {
+    public function view($view, $action, $data =[]) {
 
         if($view === 'errore') {
-                require_once '../app/views/' . $view . '.php';
-
+            require_once '../app/views/default/' . $view . '.php';
         }
         else {
             if (isset($_COOKIE['login'])) {
-                require_once '../app/views/admin/' . $view . '.php';
-            } else
-                require_once '../app/views/' . $view . '.php';
+                if($view == 'Index')
+                    require_once '../app/views/admin/' . $view . '.php';
+
+
+                else
+                    require_once '../app/views/admin/' . $view . '/' . $action . '.php';
+            }
+            else {
+                if($view == 'Index')
+                    require_once '../app/views/default/' . $view . '.php';
+                else
+                    require_once '../app/views/' . $view . '/' . $action . '.php';
+            }
+
         }
 
     }

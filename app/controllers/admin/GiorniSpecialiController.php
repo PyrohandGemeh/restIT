@@ -17,6 +17,15 @@ class GiorniSpeciali extends Controller {
         $result = $conn->selectAllWhereField('stagioni', $values, '=');
 
         if($result)
-            $this->view('giorni_speciali', $result);
+            $this->view(get_class(), 'index', $result);
+    }
+
+    public function editAction($id){
+        $conn = new MySql();
+
+        $result = $conn->findOneById("stagioni", $id);
+
+        if($result)
+            $this->view(get_class(), 'edit', $result);
     }
 }

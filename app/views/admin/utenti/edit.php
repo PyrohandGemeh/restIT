@@ -6,12 +6,12 @@
  * Time: 14:40
  */
 
-
 while($row = $data->fetch_assoc()) {
-    echo $row["nome_stagione"] ." ". $row["inizio"] ." ". $row["fine"] ." <br>";
+    echo "Eccolo" . "<br>";
+    echo $row["username"] ." ". $row["password"]. '<br>';
 }
 ?>
 
-<form action="<?php echo ROOT ?>" method="post">
+<form action="<?php echo ROOT .'/utenti' ?>" method="post">
     <input type="submit" name="bottone" value="Home">
 </form>
