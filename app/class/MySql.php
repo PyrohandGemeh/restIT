@@ -161,7 +161,19 @@ class MySql {
 
     }
 
-    public function selectAllInnerJoin(){
-        
+    public function selectAllNaturalJoin($tables){
+        if(count($tables) > 1) {
+            $query = 'SELECT * FROM ';
+            $last = end($tables);
+
+            foreach ($tables as $table){
+                $query .= $table;
+
+                if($table !== $last)
+                    $query .= ' NATURAL JOIN ';
+            }
+        }
+
+        return $this->connection->query($query);
     }
 }

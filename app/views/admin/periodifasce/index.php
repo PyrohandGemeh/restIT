@@ -13,10 +13,10 @@
 
 <?php
 while($row = $data->fetch_assoc()) {
-    echo $row["id"] .": ". $row["nome_periodo"];
+    echo $row["nome_periodo"] .': '. $row["nome_fascia"] .' '. $row['orario'];
     ?>
-    <a href=<?php echo ROOT .'/periodifasce/edit/'. $row['id'] ?>>Edit</a>
-    <a href=<?php echo ROOT .'/periodifasce/remove/'. $row['id'] ?>>Delete</a>
+    <a href=<?php echo ROOT .'/periodifasce/edit/'. $row['id_periodo'] ?>>Edit</a>
+    <a href=<?php echo ROOT .'/periodifasce/remove/'. $row['id_periodo'] ?>>Delete</a>
     <?php
     echo '<br>';
 }

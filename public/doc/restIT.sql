@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Creato il: Set 18, 2018 alle 17:47
+-- Creato il: Set 18, 2018 alle 18:01
 -- Versione del server: 10.1.35-MariaDB
 -- Versione PHP: 7.2.9
 
@@ -25,19 +25,19 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Struttura della tabella `fasce_orarie`
+-- Struttura della tabella `fasceorarie`
 --
 
-CREATE TABLE `fasce_orarie` (
+CREATE TABLE `fasceorarie` (
   `id_fascia` int(11) NOT NULL,
   `nome_fascia` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dump dei dati per la tabella `fasce_orarie`
+-- Dump dei dati per la tabella `fasceorarie`
 --
 
-INSERT INTO `fasce_orarie` (`id_fascia`, `nome_fascia`) VALUES
+INSERT INTO `fasceorarie` (`id_fascia`, `nome_fascia`) VALUES
 (1, 'Colazione'),
 (2, 'Brunch'),
 (3, 'Pranzo'),
@@ -215,9 +215,9 @@ INSERT INTO `utenti` (`id_utente`, `username`, `password`) VALUES
 --
 
 --
--- Indici per le tabelle `fasce_orarie`
+-- Indici per le tabelle `fasceorarie`
 --
-ALTER TABLE `fasce_orarie`
+ALTER TABLE `fasceorarie`
   ADD PRIMARY KEY (`id_fascia`);
 
 --
