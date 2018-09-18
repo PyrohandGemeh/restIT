@@ -13,19 +13,19 @@ class Sale extends Controller {
     public function indexAction() {
         $conn = new MySql();
 
-        $result = $conn->selectAll("sale");
+        $result = $conn->selectAll(get_class());
 
         if($result)
-            $this->view('sale', 'index', $result);
+            $this->view(get_class(), 'index', $result);
     }
 
     public function editAction($id){
         $conn = new MySql();
 
-        $result = $conn->findOneById("sale", $id);
+        $result = $conn->findOneById(get_class(), $id);
 
         if($result)
-            $this->view('sale', 'edit', $result);
+            $this->view(get_class(), 'edit', $result);
     }
-    
+
 }

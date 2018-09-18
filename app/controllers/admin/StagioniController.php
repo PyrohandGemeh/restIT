@@ -14,18 +14,18 @@ class Stagioni extends Controller {
         $conn = new MySql();
 
         $values = ['inizio' => 'fine'];
-        $result = $conn->selectAllWhereField('stagioni', $values, '<>');
+        $result = $conn->selectAllWhereField(get_class(), $values, '<>');
 
         if($result)
-            $this->view('stagioni', 'index', $result);
+            $this->view(get_class(), 'index', $result);
     }
 
     public function editAction($id){
         $conn = new MySql();
 
-        $result = $conn->findOneById("stagioni", $id);
+        $result = $conn->findOneById(get_class(), $id);
 
         if($result)
-            $this->view('stagioni', 'edit', $result);
+            $this->view(get_class(), 'edit', $result);
     }
 }

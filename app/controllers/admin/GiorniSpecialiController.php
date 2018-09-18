@@ -17,7 +17,7 @@ class GiorniSpeciali extends Controller {
         $result = $conn->selectAllWhereField('stagioni', $values, '=');
 
         if($result)
-            $this->view('giorniSpeciali', 'index', $result);
+            $this->view(get_class(), 'index', $result);
     }
 
     public function editAction($id){
@@ -26,6 +26,6 @@ class GiorniSpeciali extends Controller {
         $result = $conn->findOneById("stagioni", $id);
 
         if($result)
-            $this->view('giornispeciali', 'edit', $result);
+            $this->view(get_class(), 'edit', $result);
     }
 }
