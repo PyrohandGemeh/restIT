@@ -13,8 +13,8 @@ if(isset($_COOKIE['login'])) {
     <form action="utenti" method="post">
         <input type="submit" name="bottone" value="Utenti">
     </form>
-    <form action="periodi" method="post">
-        <input type="submit" name="bottone" value="Periodi">
+    <form action="periodifasce" method="post">
+        <input type="submit" name="bottone" value="PeriodiFasce">
     </form>
     <form action="sale" method="post">
         <input type="submit" name="bottone" value="Sale">

@@ -160,4 +160,8 @@ class MySql {
             return false;
 
     }
+
+    public function selectAllInnerJoin(){
+        
+    }
 }

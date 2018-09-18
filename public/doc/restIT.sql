@@ -1,65 +1,95 @@
--- --------------------------------------------------------
--- Host:                         127.0.0.1
--- Versione server:              10.1.29-MariaDB - mariadb.org binary distribution
--- S.O. server:                  Win32
--- HeidiSQL Versione:            9.5.0.5196
--- --------------------------------------------------------
+-- phpMyAdmin SQL Dump
+-- version 4.8.3
+-- https://www.phpmyadmin.net/
+--
+-- Host: 127.0.0.1
+-- Creato il: Set 18, 2018 alle 17:47
+-- Versione del server: 10.1.35-MariaDB
+-- Versione PHP: 7.2.9
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
+SET time_zone = "+00:00";
+
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET NAMES utf8 */;
-/*!50503 SET NAMES utf8mb4 */;
-/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
-/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
 
+--
+-- Database: `restit`
+--
 
--- Dump della struttura del database restit
-CREATE DATABASE IF NOT EXISTS `restit` /*!40100 DEFAULT CHARACTER SET latin1 */;
-USE `restit`;
+-- --------------------------------------------------------
 
--- Dump della struttura di tabella restit.fasce_orarie
-CREATE TABLE IF NOT EXISTS `fasce_orarie` (
-  `id` int(11) NOT NULL,
-  `nome_fascia` varchar(50) NOT NULL,
-  PRIMARY KEY (`id`)
+--
+-- Struttura della tabella `fasce_orarie`
+--
+
+CREATE TABLE `fasce_orarie` (
+  `id_fascia` int(11) NOT NULL,
+  `nome_fascia` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
--- Dump dei dati della tabella restit.fasce_orarie: ~5 rows (circa)
-/*!40000 ALTER TABLE `fasce_orarie` DISABLE KEYS */;
-INSERT INTO `fasce_orarie` (`id`, `nome_fascia`) VALUES
-	(1, 'Colazione'),
-	(2, 'Brunch'),
-	(3, 'Pranzo'),
-	(4, 'Aperitivo'),
-	(5, 'Cena'),
-	(6, 'Serata');
-/*!40000 ALTER TABLE `fasce_orarie` ENABLE KEYS */;
+--
+-- Dump dei dati per la tabella `fasce_orarie`
+--
 
--- Dump della struttura di tabella restit.periodi
-CREATE TABLE IF NOT EXISTS `periodi` (
-  `id` int(11) NOT NULL,
-  `nome_periodo` varchar(50) NOT NULL,
-  PRIMARY KEY (`id`)
+INSERT INTO `fasce_orarie` (`id_fascia`, `nome_fascia`) VALUES
+(1, 'Colazione'),
+(2, 'Brunch'),
+(3, 'Pranzo'),
+(4, 'Aperitivo'),
+(5, 'Cena'),
+(6, 'Serata');
+
+-- --------------------------------------------------------
+
+--
+-- Struttura della tabella `periodi`
+--
+
+CREATE TABLE `periodi` (
+  `id_periodo` int(11) NOT NULL,
+  `nome_periodo` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
--- Dump dei dati della tabella restit.periodi: ~0 rows (circa)
-/*!40000 ALTER TABLE `periodi` DISABLE KEYS */;
-/*!40000 ALTER TABLE `periodi` ENABLE KEYS */;
+--
+-- Dump dei dati per la tabella `periodi`
+--
 
--- Dump della struttura di tabella restit.periodi_fasce
-CREATE TABLE IF NOT EXISTS `periodi_fasce` (
+INSERT INTO `periodi` (`id_periodo`, `nome_periodo`) VALUES
+(1, 'Pranzo');
+
+-- --------------------------------------------------------
+
+--
+-- Struttura della tabella `periodifasce`
+--
+
+CREATE TABLE `periodifasce` (
   `id_periodo` int(11) NOT NULL,
   `id_fascia` int(11) NOT NULL,
-  `orario` varchar(50) DEFAULT NULL,
-  PRIMARY KEY (`id_periodo`,`id_fascia`)
+  `orario` varchar(50) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
--- Dump dei dati della tabella restit.periodi_fasce: ~0 rows (circa)
-/*!40000 ALTER TABLE `periodi_fasce` DISABLE KEYS */;
-/*!40000 ALTER TABLE `periodi_fasce` ENABLE KEYS */;
+--
+-- Dump dei dati per la tabella `periodifasce`
+--
 
--- Dump della struttura di tabella restit.prenotazioni
-CREATE TABLE IF NOT EXISTS `prenotazioni` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+INSERT INTO `periodifasce` (`id_periodo`, `id_fascia`, `orario`) VALUES
+(1, 3, '12:00');
+
+-- --------------------------------------------------------
+
+--
+-- Struttura della tabella `prenotazioni`
+--
+
+CREATE TABLE `prenotazioni` (
+  `id_prenotazione` int(11) NOT NULL,
   `nome_cliente` varchar(50) NOT NULL,
   `tel_cliente` varchar(10) NOT NULL,
   `numero` int(11) NOT NULL,
@@ -71,17 +101,17 @@ CREATE TABLE IF NOT EXISTS `prenotazioni` (
   `note_prenotazione` text NOT NULL,
   `scadenza` int(11) NOT NULL,
   `arrivo` int(11) NOT NULL,
-  `chiusura` int(11) NOT NULL,
-  PRIMARY KEY (`id`)
+  `chiusura` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
--- Dump dei dati della tabella restit.prenotazioni: ~0 rows (circa)
-/*!40000 ALTER TABLE `prenotazioni` DISABLE KEYS */;
-/*!40000 ALTER TABLE `prenotazioni` ENABLE KEYS */;
+-- --------------------------------------------------------
 
--- Dump della struttura di tabella restit.prenotazioni_revisionare
-CREATE TABLE IF NOT EXISTS `prenotazioni_revisionare` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+--
+-- Struttura della tabella `prenotazionirevisionare`
+--
+
+CREATE TABLE `prenotazionirevisionare` (
+  `id_prenotazione` int(11) NOT NULL,
   `nome_cliente` varchar(50) NOT NULL,
   `tel_cliente` varchar(10) NOT NULL,
   `numero` int(11) NOT NULL,
@@ -90,28 +120,28 @@ CREATE TABLE IF NOT EXISTS `prenotazioni_revisionare` (
   `id_sala` int(11) NOT NULL,
   `id_stagione` int(11) NOT NULL,
   `id_fascia` int(11) NOT NULL,
-  `note_prenotazione` text NOT NULL,
-  PRIMARY KEY (`id`)
+  `note_prenotazione` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
--- Dump dei dati della tabella restit.prenotazioni_revisionare: ~0 rows (circa)
-/*!40000 ALTER TABLE `prenotazioni_revisionare` DISABLE KEYS */;
-/*!40000 ALTER TABLE `prenotazioni_revisionare` ENABLE KEYS */;
+-- --------------------------------------------------------
 
--- Dump della struttura di tabella restit.sale
-CREATE TABLE IF NOT EXISTS `sale` (
-  `id` int(11) NOT NULL,
-  `nome_sala` varchar(50) NOT NULL,
-  PRIMARY KEY (`id`)
+--
+-- Struttura della tabella `sale`
+--
+
+CREATE TABLE `sale` (
+  `id_sala` int(11) NOT NULL,
+  `nome_sala` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
--- Dump dei dati della tabella restit.sale: ~0 rows (circa)
-/*!40000 ALTER TABLE `sale` DISABLE KEYS */;
-/*!40000 ALTER TABLE `sale` ENABLE KEYS */;
+-- --------------------------------------------------------
 
--- Dump della struttura di tabella restit.stagioni
-CREATE TABLE IF NOT EXISTS `stagioni` (
-  `id` int(11) NOT NULL,
+--
+-- Struttura della tabella `stagioni`
+--
+
+CREATE TABLE `stagioni` (
+  `id_stagione` int(11) NOT NULL,
   `nome_stagione` varchar(50) NOT NULL,
   `inizio` varchar(50) NOT NULL,
   `fine` varchar(50) NOT NULL,
@@ -122,64 +152,163 @@ CREATE TABLE IF NOT EXISTS `stagioni` (
   `giovedi` int(11) NOT NULL,
   `venerdi` int(11) NOT NULL,
   `sabato` int(11) NOT NULL,
-  `domenica` int(11) NOT NULL,
-  PRIMARY KEY (`id`)
+  `domenica` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
--- Dump dei dati della tabella restit.stagioni: ~0 rows (circa)
-/*!40000 ALTER TABLE `stagioni` DISABLE KEYS */;
-/*!40000 ALTER TABLE `stagioni` ENABLE KEYS */;
+-- --------------------------------------------------------
 
--- Dump della struttura di tabella restit.stagioni_sale
-CREATE TABLE IF NOT EXISTS `stagioni_sale` (
+--
+-- Struttura della tabella `stagionisale`
+--
+
+CREATE TABLE `stagionisale` (
   `id_stagione` int(11) NOT NULL,
-  `id_sala` int(11) NOT NULL,
-  PRIMARY KEY (`id_stagione`,`id_sala`)
+  `id_sala` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
--- Dump dei dati della tabella restit.stagioni_sale: ~0 rows (circa)
-/*!40000 ALTER TABLE `stagioni_sale` DISABLE KEYS */;
-/*!40000 ALTER TABLE `stagioni_sale` ENABLE KEYS */;
+-- --------------------------------------------------------
 
--- Dump della struttura di tabella restit.storico_clienti
-CREATE TABLE IF NOT EXISTS `storico_clienti` (
+--
+-- Struttura della tabella `storicoclienti`
+--
+
+CREATE TABLE `storicoclienti` (
   `id` int(11) NOT NULL,
   `nome_cliente` varchar(50) DEFAULT NULL,
-  `tel_cliente` int(11) DEFAULT NULL,
-  PRIMARY KEY (`id`)
+  `tel_cliente` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
--- Dump dei dati della tabella restit.storico_clienti: ~0 rows (circa)
-/*!40000 ALTER TABLE `storico_clienti` DISABLE KEYS */;
-/*!40000 ALTER TABLE `storico_clienti` ENABLE KEYS */;
+-- --------------------------------------------------------
 
--- Dump della struttura di tabella restit.tavoli_sale
-CREATE TABLE IF NOT EXISTS `tavoli_sale` (
+--
+-- Struttura della tabella `tavolisale`
+--
+
+CREATE TABLE `tavolisale` (
   `id_sala` int(11) NOT NULL,
   `id_tavolo` int(11) NOT NULL,
   `id_periodo` int(11) NOT NULL,
-  `num_persone` int(11) NOT NULL,
-  PRIMARY KEY (`id_sala`,`id_tavolo`,`id_periodo`)
+  `num_persone` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
--- Dump dei dati della tabella restit.tavoli_sale: ~0 rows (circa)
-/*!40000 ALTER TABLE `tavoli_sale` DISABLE KEYS */;
-/*!40000 ALTER TABLE `tavoli_sale` ENABLE KEYS */;
+-- --------------------------------------------------------
 
--- Dump della struttura di tabella restit.utenti
-CREATE TABLE IF NOT EXISTS `utenti` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+--
+-- Struttura della tabella `utenti`
+--
+
+CREATE TABLE `utenti` (
+  `id_utente` int(11) NOT NULL,
   `username` varchar(50) NOT NULL,
-  `password` varchar(50) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+  `password` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
--- Dump dei dati della tabella restit.utenti: ~0 rows (circa)
-/*!40000 ALTER TABLE `utenti` DISABLE KEYS */;
-INSERT INTO `utenti` (`id`, `username`, `password`) VALUES
-	(1, 'admin', '21232f297a57a5a743894a0e4a801fc3');
-/*!40000 ALTER TABLE `utenti` ENABLE KEYS */;
+--
+-- Dump dei dati per la tabella `utenti`
+--
 
-/*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
-/*!40014 SET FOREIGN_KEY_CHECKS=IF(@OLD_FOREIGN_KEY_CHECKS IS NULL, 1, @OLD_FOREIGN_KEY_CHECKS) */;
+INSERT INTO `utenti` (`id_utente`, `username`, `password`) VALUES
+(1, 'admin', '21232f297a57a5a743894a0e4a801fc3');
+
+--
+-- Indici per le tabelle scaricate
+--
+
+--
+-- Indici per le tabelle `fasce_orarie`
+--
+ALTER TABLE `fasce_orarie`
+  ADD PRIMARY KEY (`id_fascia`);
+
+--
+-- Indici per le tabelle `periodi`
+--
+ALTER TABLE `periodi`
+  ADD PRIMARY KEY (`id_periodo`);
+
+--
+-- Indici per le tabelle `periodifasce`
+--
+ALTER TABLE `periodifasce`
+  ADD PRIMARY KEY (`id_periodo`,`id_fascia`);
+
+--
+-- Indici per le tabelle `prenotazioni`
+--
+ALTER TABLE `prenotazioni`
+  ADD PRIMARY KEY (`id_prenotazione`);
+
+--
+-- Indici per le tabelle `prenotazionirevisionare`
+--
+ALTER TABLE `prenotazionirevisionare`
+  ADD PRIMARY KEY (`id_prenotazione`);
+
+--
+-- Indici per le tabelle `sale`
+--
+ALTER TABLE `sale`
+  ADD PRIMARY KEY (`id_sala`);
+
+--
+-- Indici per le tabelle `stagioni`
+--
+ALTER TABLE `stagioni`
+  ADD PRIMARY KEY (`id_stagione`);
+
+--
+-- Indici per le tabelle `stagionisale`
+--
+ALTER TABLE `stagionisale`
+  ADD PRIMARY KEY (`id_stagione`,`id_sala`);
+
+--
+-- Indici per le tabelle `storicoclienti`
+--
+ALTER TABLE `storicoclienti`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indici per le tabelle `tavolisale`
+--
+ALTER TABLE `tavolisale`
+  ADD PRIMARY KEY (`id_sala`,`id_tavolo`,`id_periodo`);
+
+--
+-- Indici per le tabelle `utenti`
+--
+ALTER TABLE `utenti`
+  ADD PRIMARY KEY (`id_utente`);
+
+--
+-- AUTO_INCREMENT per le tabelle scaricate
+--
+
+--
+-- AUTO_INCREMENT per la tabella `periodi`
+--
+ALTER TABLE `periodi`
+  MODIFY `id_periodo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT per la tabella `prenotazioni`
+--
+ALTER TABLE `prenotazioni`
+  MODIFY `id_prenotazione` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT per la tabella `prenotazionirevisionare`
+--
+ALTER TABLE `prenotazionirevisionare`
+  MODIFY `id_prenotazione` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT per la tabella `utenti`
+--
+ALTER TABLE `utenti`
+  MODIFY `id_utente` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+COMMIT;
+
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
