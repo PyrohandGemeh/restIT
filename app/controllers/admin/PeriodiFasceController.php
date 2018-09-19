@@ -13,7 +13,9 @@ class PeriodiFasce extends Controller {
     public function indexAction() {
         $conn = new MySql();
 
-
+        $tables = array('periodi', 'periodi_fasce', 'fasce_orarie');
+        $ids = array('id', 'id_periodo', 'id_fascia', 'id');
+        $result = $conn->selectAllInnerJoin3Tables($tables, $ids);
         if($result)
             $this->view(get_class(), 'index', $result);
     }

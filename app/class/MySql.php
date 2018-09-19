@@ -161,6 +161,24 @@ class MySql {
 
     }
 
+    /*
+     * Precondizione: $tables[1] è la tabella che contiene le chiavi esterne di $tables[0] e $tables[2]
+     */
+    public function selectAllInnerJoin3Tables($tables, $ids) {
+        if(count($tables) == 3) {
+            $query = 'SELECT * FROM '. $tables[0];
+            $j = 0;
+
+            for($i = 0; $i < 2; $i++) {
+                $query .= ' INNER JOIN '. $tables[$i+1] .' ON ';
+                $query .= $tables[$i] .'.'.$ids[$j] . ' = ' . $tables[$i+1] .'.'.$ids[$j+1];
+                $j = $j + 2;
+            }
+
+            return $this->connection->query($query);
+        }
+    }
+
     public function getConnection(){
         return $this->connection;
     }
