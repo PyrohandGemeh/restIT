@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.3
+-- version 4.7.4
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Creato il: Set 18, 2018 alle 18:23
--- Versione del server: 10.1.35-MariaDB
--- Versione PHP: 7.2.9
+-- Creato il: Set 19, 2018 alle 15:27
+-- Versione del server: 10.1.29-MariaDB
+-- Versione PHP: 7.2.0
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -25,19 +25,19 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Struttura della tabella `fasceorarie`
+-- Struttura della tabella `fasce_orarie`
 --
 
-CREATE TABLE `fasceorarie` (
+CREATE TABLE `fasce_orarie` (
   `id` int(11) NOT NULL,
   `nome_fascia` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dump dei dati per la tabella `fasceorarie`
+-- Dump dei dati per la tabella `fasce_orarie`
 --
 
-INSERT INTO `fasceorarie` (`id`, `nome_fascia`) VALUES
+INSERT INTO `fasce_orarie` (`id`, `nome_fascia`) VALUES
 (1, 'Colazione'),
 (2, 'Brunch'),
 (3, 'Pranzo'),
@@ -61,26 +61,27 @@ CREATE TABLE `periodi` (
 --
 
 INSERT INTO `periodi` (`id`, `nome_periodo`) VALUES
-(1, 'Pranzo');
+(1, 'Prova');
 
 -- --------------------------------------------------------
 
 --
--- Struttura della tabella `periodifasce`
+-- Struttura della tabella `periodi_fasce`
 --
 
-CREATE TABLE `periodifasce` (
+CREATE TABLE `periodi_fasce` (
+  `id` int(11) NOT NULL,
   `id_periodo` int(11) NOT NULL,
   `id_fascia` int(11) NOT NULL,
   `orario` varchar(50) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dump dei dati per la tabella `periodifasce`
+-- Dump dei dati per la tabella `periodi_fasce`
 --
 
-INSERT INTO `periodifasce` (`id_periodo`, `id_fascia`, `orario`) VALUES
-(1, 3, '12:00');
+INSERT INTO `periodi_fasce` (`id`, `id_periodo`, `id_fascia`, `orario`) VALUES
+(1, 1, 3, '12:00');
 
 -- --------------------------------------------------------
 
@@ -104,13 +105,20 @@ CREATE TABLE `prenotazioni` (
   `chiusura` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dump dei dati per la tabella `prenotazioni`
+--
+
+INSERT INTO `prenotazioni` (`id`, `nome_cliente`, `tel_cliente`, `numero`, `giorno`, `orario`, `id_sala`, `id_stagione`, `id_fascia`, `note_prenotazione`, `scadenza`, `arrivo`, `chiusura`) VALUES
+(1, 'Alessandra', '123456789', 8, '15-09-2018', '20:00', 1, 1, 1, 'nulla', 0, 0, 0);
+
 -- --------------------------------------------------------
 
 --
--- Struttura della tabella `prenotazionirevisionare`
+-- Struttura della tabella `prenotazioni_revisionare`
 --
 
-CREATE TABLE `prenotazionirevisionare` (
+CREATE TABLE `prenotazioni_revisionare` (
   `id` int(11) NOT NULL,
   `nome_cliente` varchar(50) NOT NULL,
   `tel_cliente` varchar(10) NOT NULL,
@@ -134,6 +142,13 @@ CREATE TABLE `sale` (
   `nome_sala` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dump dei dati per la tabella `sale`
+--
+
+INSERT INTO `sale` (`id`, `nome_sala`) VALUES
+(1, 'Giardino');
+
 -- --------------------------------------------------------
 
 --
@@ -155,24 +170,39 @@ CREATE TABLE `stagioni` (
   `domenica` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dump dei dati per la tabella `stagioni`
+--
+
+INSERT INTO `stagioni` (`id`, `nome_stagione`, `inizio`, `fine`, `priorità`, `lunedi`, `martedi`, `mercoledi`, `giovedi`, `venerdi`, `sabato`, `domenica`) VALUES
+(1, 'stagione', '2018-06-21', '2018-06-22', 0, 0, 0, 0, 0, 0, 0, 0),
+(2, 'giorno_speciale', '2018-09-21', '2018-09-21', 0, 0, 0, 0, 0, 0, 0, 0);
+
 -- --------------------------------------------------------
 
 --
--- Struttura della tabella `stagionisale`
+-- Struttura della tabella `stagioni_sale`
 --
 
-CREATE TABLE `stagionisale` (
+CREATE TABLE `stagioni_sale` (
   `id_stagione` int(11) NOT NULL,
   `id_sala` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dump dei dati per la tabella `stagioni_sale`
+--
+
+INSERT INTO `stagioni_sale` (`id_stagione`, `id_sala`) VALUES
+(1, 1);
+
 -- --------------------------------------------------------
 
 --
--- Struttura della tabella `storicoclienti`
+-- Struttura della tabella `storico_clienti`
 --
 
-CREATE TABLE `storicoclienti` (
+CREATE TABLE `storico_clienti` (
   `id` int(11) NOT NULL,
   `nome_cliente` varchar(50) DEFAULT NULL,
   `tel_cliente` int(11) DEFAULT NULL
@@ -181,10 +211,10 @@ CREATE TABLE `storicoclienti` (
 -- --------------------------------------------------------
 
 --
--- Struttura della tabella `tavolisale`
+-- Struttura della tabella `tavoli_sale`
 --
 
-CREATE TABLE `tavolisale` (
+CREATE TABLE `tavoli_sale` (
   `id_sala` int(11) NOT NULL,
   `id_tavolo` int(11) NOT NULL,
   `id_periodo` int(11) NOT NULL,
@@ -208,17 +238,16 @@ CREATE TABLE `utenti` (
 --
 
 INSERT INTO `utenti` (`id`, `username`, `password`) VALUES
-(1, 'admin', '21232f297a57a5a743894a0e4a801fc3'),
-(2, 'ale', 'f7a3803365a55b197a3b43bc64aacc13');
+(15, 'admin', '21232f297a57a5a743894a0e4a801fc3');
 
 --
 -- Indici per le tabelle scaricate
 --
 
 --
--- Indici per le tabelle `fasceorarie`
+-- Indici per le tabelle `fasce_orarie`
 --
-ALTER TABLE `fasceorarie`
+ALTER TABLE `fasce_orarie`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -228,10 +257,10 @@ ALTER TABLE `periodi`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indici per le tabelle `periodifasce`
+-- Indici per le tabelle `periodi_fasce`
 --
-ALTER TABLE `periodifasce`
-  ADD PRIMARY KEY (`id_periodo`,`id_fascia`);
+ALTER TABLE `periodi_fasce`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indici per le tabelle `prenotazioni`
@@ -240,9 +269,9 @@ ALTER TABLE `prenotazioni`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indici per le tabelle `prenotazionirevisionare`
+-- Indici per le tabelle `prenotazioni_revisionare`
 --
-ALTER TABLE `prenotazionirevisionare`
+ALTER TABLE `prenotazioni_revisionare`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -258,21 +287,21 @@ ALTER TABLE `stagioni`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indici per le tabelle `stagionisale`
+-- Indici per le tabelle `stagioni_sale`
 --
-ALTER TABLE `stagionisale`
+ALTER TABLE `stagioni_sale`
   ADD PRIMARY KEY (`id_stagione`,`id_sala`);
 
 --
--- Indici per le tabelle `storicoclienti`
+-- Indici per le tabelle `storico_clienti`
 --
-ALTER TABLE `storicoclienti`
+ALTER TABLE `storico_clienti`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indici per le tabelle `tavolisale`
+-- Indici per le tabelle `tavoli_sale`
 --
-ALTER TABLE `tavolisale`
+ALTER TABLE `tavoli_sale`
   ADD PRIMARY KEY (`id_sala`,`id_tavolo`,`id_periodo`);
 
 --
@@ -286,28 +315,28 @@ ALTER TABLE `utenti`
 --
 
 --
--- AUTO_INCREMENT per la tabella `periodi`
+-- AUTO_INCREMENT per la tabella `periodi_fasce`
 --
-ALTER TABLE `periodi`
+ALTER TABLE `periodi_fasce`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT per la tabella `prenotazioni`
 --
 ALTER TABLE `prenotazioni`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT per la tabella `prenotazionirevisionare`
+-- AUTO_INCREMENT per la tabella `prenotazioni_revisionare`
 --
-ALTER TABLE `prenotazionirevisionare`
+ALTER TABLE `prenotazioni_revisionare`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT per la tabella `utenti`
 --
 ALTER TABLE `utenti`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

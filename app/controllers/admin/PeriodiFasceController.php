@@ -15,6 +15,7 @@ class PeriodiFasce extends Controller {
 
         $tables = array('periodi', 'periodi_fasce', 'fasce_orarie');
         $ids = array('id', 'id_periodo', 'id_fascia', 'id');
+
         $result = $conn->selectAllInnerJoin3Tables($tables, $ids);
         if($result)
             $this->view(get_class(), 'index', $result);
@@ -24,10 +25,8 @@ class PeriodiFasce extends Controller {
         $this->view(get_class(), 'add', '');
     }
 
-    public function editAction(){
+    public function editAction($id){
         $conn = new MySql();
-
-
 
     }
 }
