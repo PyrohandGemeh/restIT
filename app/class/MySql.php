@@ -125,16 +125,22 @@ class MySql {
     }
 
     public function deleteWhereId($tableName, $id) {
-        if ($this->findOneById($tableName, $id)->num_rows == 1) {
-            $query = 'DELETE FROM ' . $tableName . ' WHERE id = ' . $id;
+        $query = 'DELETE FROM ' . $tableName . ' WHERE ';
 
-            $result = $this->connection->query($query);
-            if ($result) {
-                echo "ciao";
-                return true;
-            }
+        $last = end($id);
+        foreach ($id as $field => $value) {
+            $query .= $field . ' = '. $value;
 
+            if ($value !== $last)
+                $query .= " AND ";
         }
+        echo $query;
+        $result = $this->connection->query($query);
+        if ($result) {
+            echo "ciao";
+            return true;
+        }
+
 
         return false;
     }
@@ -173,6 +179,48 @@ class MySql {
                 $query .= ' INNER JOIN '. $tables[$i+1] .' ON ';
                 $query .= $tables[$i] .'.'.$ids[$j] . ' = ' . $tables[$i+1] .'.'.$ids[$j+1];
                 $j = $j + 2;
+            }
+            return $this->connection->query($query);
+        }
+    }
+
+    public function selectAllInnerJoin3TablesWhere($tables, $ids, $values, $operator) {
+        if(count($tables) == 3) {
+            $query = 'SELECT * FROM '. $tables[0];
+            $j = 0;
+
+            for($i = 0; $i < 2; $i++) {
+                $query .= ' INNER JOIN '. $tables[$i+1] .' ON ';
+                $query .= $tables[$i] .'.'.$ids[$j] . ' = ' . $tables[$i+1] .'.'.$ids[$j+1];
+                $j = $j + 2;
+            }
+
+            $query .= ' WHERE ';
+            $last = end($values);
+            foreach ($values as $field => $value) {
+                $query .= $field . ' ' . $operator . ' '. $value;
+
+                if ($value !== $last)
+                    $query .= " AND ";
+            }
+            return $this->connection->query($query);
+        }
+    }
+
+    /*
+     * Precondizione: tables e ids devono essere simmetrici
+     */
+    public function selectAllInnerJoin2TablesWhere($tables, $ids, $values, $operator) {
+        if(count($tables) == 2) {
+            $query = 'SELECT * FROM '. $tables[0] .' INNER JOIN '. $tables[1] .' ON '. $tables[0] .'.'.$ids[0] . ' = ' . $tables[1] .'.'.$ids[1];
+            $query .= ' WHERE ';
+
+            $last = end($values);
+            foreach ($values as $field => $value) {
+                $query .= $field . ' ' . $operator . ' '. $value;
+
+                if ($value !== $last)
+                    $query .= " AND ";
             }
 
             return $this->connection->query($query);

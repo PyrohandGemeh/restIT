@@ -13,7 +13,7 @@ class PeriodiFasce extends Controller {
     public function indexAction() {
         $conn = new MySql();
 
-        $tables = array('periodi', 'periodi_fasce', 'fasce_orarie');
+        $tables = array('periodi', get_class(), 'fasce_orarie');
         $ids = array('id', 'id_periodo', 'id_fascia', 'id');
 
         $result = $conn->selectAllInnerJoin3Tables($tables, $ids);
@@ -27,6 +27,31 @@ class PeriodiFasce extends Controller {
 
     public function editAction($id){
         $conn = new MySql();
+        $values = ['id_gestione' => $id];
+        $tables = array('periodi', get_class(), 'fasce_orarie');
+        $ids = array('id', 'id_periodo', 'id_fascia', 'id');
 
+        $result = $conn->selectAllInnerJoin3TablesWhere($tables, $ids, $values, '=');
+
+        if($result->num_rows == 1) {
+            $this->view(get_class(), 'edit', $result);
+        }
+    }
+
+    public function removeAction($id) {
+        $conn = new MySql();
+        $values = ['id_gestione' => $id];
+
+        $result = $conn->selectAllWhere(get_class(), $values, '=');
+
+        if($result->num_rows == 1) {
+            $row = $result->fetch_assoc();
+            $id_periodo = ['id' => $row['id_periodo']];
+        }
+
+        $conn->deleteWhereId(get_class(), $values);
+        $conn->deleteWhereId('periodi', $id_periodo);
+
+        header("Location: ". ROOT .'/'. get_class());
     }
 }
