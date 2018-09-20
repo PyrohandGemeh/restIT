@@ -8,7 +8,7 @@
 
 while($row = $data->fetch_assoc()) {
     echo "Eccolo" . "<br>";
-    echo $row["id"] ." ". $row["nome_periodo"]. '<br>';
+    echo $row["nome_periodo"] .': '. $row["nome_fascia"] .' '. $row['orario'];
 }
 ?>
 
