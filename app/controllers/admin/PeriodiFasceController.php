@@ -7,22 +7,21 @@
  */
 
 require_once __DIR__ . '/../../class/MySql.php';
+require_once __DIR__ . '/PeriodiController.php';
 
 class PeriodiFasce extends Controller {
 
     public function indexAction() {
         $conn = new MySql();
 
-<<<<<<< HEAD
-        
-=======
-        $tables = array('periodi', get_class(), 'fasce_orarie');
+        $tables = array('periodi', get_class(), 'fasceorarie');
         $ids = array('id', 'id_periodo', 'id_fascia', 'id');
->>>>>>> 56dd671e3c21d6cb95b68feaca9024123057fb74
 
         $result = $conn->selectAllInnerJoin3Tables($tables, $ids);
-        if($result)
+        if($result) {
             $this->view(get_class(), 'index', $result);
+        }
+
     }
 
     public function addAction(){
@@ -42,19 +41,15 @@ class PeriodiFasce extends Controller {
         }
     }
 
-    public function removeAction($id) {
+    public function removeAction($id_gestione, $id_periodo) {
         $conn = new MySql();
-        $values = ['id_gestione' => $id];
 
-        $result = $conn->selectAllWhere(get_class(), $values, '=');
+        $gestione = ['id_gestione' => $id_gestione];
+        $periodo = ['id' => $id_periodo];
 
-        if($result->num_rows == 1) {
-            $row = $result->fetch_assoc();
-            $id_periodo = ['id' => $row['id_periodo']];
-        }
+        $conn->deleteWhereId(get_class(), $gestione);
 
-        $conn->deleteWhereId(get_class(), $values);
-        $conn->deleteWhereId('periodi', $id_periodo);
+        $conn->deleteWhereId('periodi', $periodo);
 
         header("Location: ". ROOT .'/'. get_class());
     }

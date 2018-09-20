@@ -137,7 +137,6 @@ class MySql {
         echo $query;
         $result = $this->connection->query($query);
         if ($result) {
-            echo "ciao";
             return true;
         }
 
@@ -203,6 +202,7 @@ class MySql {
                 if ($value !== $last)
                     $query .= " AND ";
             }
+
             return $this->connection->query($query);
         }
     }
