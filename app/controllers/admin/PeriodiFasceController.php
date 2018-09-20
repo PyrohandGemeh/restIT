@@ -13,6 +13,7 @@ class PeriodiFasce extends Controller {
     public function indexAction() {
         $conn = new MySql();
 
+        
 
         if($result)
             $this->view(get_class(), 'index', $result);
