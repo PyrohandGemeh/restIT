@@ -48,6 +48,31 @@ class Utenti extends Controller {
             $this->view(get_class(), 'edit', $result);
     }
 
+    public function editPostAction($id) {
+        $conn = new MySql();
+        $new_username = $_POST['username'];
+        $new_password = md5($_POST['password']);
+
+        $result = $conn->findOneById(get_class(), $id);
+
+        $row = $result->fetch_assoc();
+        $username = $row['username'];
+
+        if($new_username != $username) {
+            echo 'salve';
+            $result = $conn->selectAllWhere(get_class(), ['username' => $new_username], '=');
+
+            if($result->num_rows == 0) {
+                $conn->updateWhereId(get_class(), ['username' => $new_username, 'password' => $new_password], $id);
+            }
+        }
+        else{
+            $conn->updateWhereId(get_class(), ['password' => $new_password], $id);
+        }
+
+        header('Location: '. ROOT. '/'. get_class());
+    }
+
     public function removeAction($id){
         $conn = new MySql();
 

@@ -14,10 +14,13 @@
 <?php
 while($row = $data->fetch_assoc()) {
     echo $row["username"] ." ". $row["password"];
-    ?>
-    <a href=<?php echo ROOT .'/utenti/edit/'. $row['id'] ?>>Edit</a>
-    <a href=<?php echo ROOT .'/utenti/remove/'. $row['id'] ?>>Delete</a>
-    <?php
+
+    if($_COOKIE['login'] != $row['username']) {
+        ?>
+        <a href=<?php echo ROOT . '/utenti/edit/' . $row['id'] ?>>Edit</a>
+        <a href=<?php echo ROOT . '/utenti/remove/' . $row['id'] ?>>Delete</a>
+        <?php
+    }
     echo '<br>';
 }
 ?>
