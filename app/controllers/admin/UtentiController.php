@@ -75,8 +75,8 @@ class Utenti extends Controller {
 
     public function removeAction($id){
         $conn = new MySql();
-
-        $result = $conn->deleteWhereId(get_class(), $id);
+        $value = ['id' => $id];
+        $result = $conn->deleteWhereId(get_class(), $value);
 
         if($result)
             header("Location: ". ROOT . '/' . get_class());
