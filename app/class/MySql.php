@@ -40,6 +40,7 @@ class MySql {
         }
 
         $query .= "FROM " . $tableName;
+
         return $this->connection->query($query);
     }
 
@@ -53,12 +54,13 @@ class MySql {
         $last = end($values);
         foreach ($values as $field => $value) {
             $query .= $field . ' ' . $operator . ' ';
+            $value = $this->connection->real_escape_string($value);
             $query .= "'" . $value . "'";
 
             if ($value !== $last)
                 $query .= " AND ";
         }
-
+        echo $query;
         return $this->connection->query($query);
     }
 
@@ -77,6 +79,7 @@ class MySql {
     }
 
     public function findOneById($tableName, $id) {
+        $id = $this->connection->real_escape_string($id);
         $query = "SELECT * FROM " . $tableName . " WHERE id = " . $id;
         return $this->connection->query($query);
     }
@@ -99,6 +102,7 @@ class MySql {
 
         $last = end($values);
         foreach ($values as $field => $value) {
+            $value = $this->connection->real_escape_string($value);
             $query .= "'" . $value . "'";
 
             if ($value !== $last)
@@ -129,6 +133,7 @@ class MySql {
 
         $last = end($id);
         foreach ($id as $field => $value) {
+            $value = $this->connection->real_escape_string($value);
             $query .= $field . ' = '. $value;
 
             if ($value !== $last)
@@ -150,12 +155,13 @@ class MySql {
         $last = end($values);
         foreach ($values as $field => $value) {
             $query .= $field . ' = ';
+            $value = $this->connection->real_escape_string($value);
             $query .= "'" . $value . "'";
 
             if ($value !== $last)
                 $query .= ", ";
             else
-                $query .=" WHERE id = ". $id;
+                $query .=" WHERE id = ". $this->connection->real_escape_string($id);
         }
 
         $result = $this->connection->query($query);
@@ -197,6 +203,7 @@ class MySql {
             $query .= ' WHERE ';
             $last = end($values);
             foreach ($values as $field => $value) {
+                $value = $this->connection->real_escape_string($value);
                 $query .= $field . ' ' . $operator . ' '. $value;
 
                 if ($value !== $last)
@@ -217,6 +224,7 @@ class MySql {
 
             $last = end($values);
             foreach ($values as $field => $value) {
+                $value = $this->connection->real_escape_string($value);
                 $query .= $field . ' ' . $operator . ' '. $value;
 
                 if ($value !== $last)
