@@ -23,13 +23,11 @@ class Controller {
             if (isset($_COOKIE['login'])) {
                 if($view == 'Index')
                     require_once '../app/views/admin/' . $view . '.php';
-
-
                 else
                     require_once '../app/views/admin/' . $view . '/' . $action . '.php';
             }
             else {
-                if($view == 'Index')
+                if($view == 'Index' || $view == 'Login')
                     require_once '../app/views/default/' . $view . '.php';
                 else
                     require_once '../app/views/' . $view . '/' . $action . '.php';

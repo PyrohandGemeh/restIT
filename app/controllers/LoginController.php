@@ -10,6 +10,11 @@ require_once __DIR__ . '/../class/MySql.php';
 
 class Login extends Controller {
 
+    public function indexAction() {
+        $this->view(get_class(), '', '');
+
+    }
+
     public function loginPostAction() {
         $conn = new MySql();
 
