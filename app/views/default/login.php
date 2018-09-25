@@ -88,15 +88,22 @@
 	</style>
 	
 	<body>
+<<<<<<< HEAD
 		<div id="cookieConsent">
 			<div id="closeCookieConsent">x</div>
 			Questa applicazione Web utilizza Cookies. <a href="#" target="_blank">Maggiori informazioni</a>. <a class="cookieConsentOK">OK, ho capito</a>
 		</div>
+=======
+    <?php
+    if(!empty($data['result'])) {
+        print_r($data['result']) .'<br><br>';
+    }
+    ?>
+>>>>>>> 24bb071f6d786a29a928998cca433c9ac8bf2718
 		<div class="container">
-			
 			<div class="row">
 				<div class="col-md-4 col-md-offset-4 chromeStyleColumn">
-					<form action="login/login" method="POST" id="loginForm">
+					<form action="<?php echo ROOT . '/login/login'; ?>" method="POST" id="loginForm">
 						<br>
 						<h2>RestIT</h2>
 						<div class="form-group">

@@ -10,9 +10,8 @@ require_once __DIR__ . '/../class/MySql.php';
 
 class Login extends Controller {
 
-    public function indexAction() {
-        $this->view(get_class(), '', '');
-
+    public function indexAction($data = []) {
+        $this->view(get_class(), '', ['result' => $data]);
     }
 
     public function loginPostAction() {
@@ -30,8 +29,10 @@ class Login extends Controller {
             //$_SESSION['login'] = $username;
 			header("Location: ../");
         }
-		else
-			header("Location: ../login");
+		else {
+            $errore = 'Credenziali errate';
+            header("Location: ../login/index/". $errore);
+        }
     }
 
     public function logoutAction() {
