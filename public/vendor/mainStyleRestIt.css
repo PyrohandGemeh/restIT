@@ -1,0 +1,100 @@
+
+.btn-lg { width: 150px; margin-bottom: 10px; border-radius: 23px; transition-duration: 0.3s; }
+
+.borderBottom { box-shadow: 4px 4px #EEE; background-color: white; }
+.borderBottom:hover { color: white; }
+@media (max-width: 767px)
+{
+	.toolButton .textBorderBottom { display: none; }
+	.toolButton { width: 46px; padding: 10px 0px; }
+
+	.toolButton {
+		-webkit-transform: rotate(360deg);
+		-webkit-transition-delay: now;
+		-webkit-animation-timing-function: linear;
+		-webkit-animation-iteration-count: infinite;
+	}
+}
+.borderBottom-default { border-color: #ccc; color: #ccc; }
+.borderBottom-default:hover { background-color: #ccc; color: white; border-color: #ccc; }
+.borderBottom-primary { border-color: #337ab7; color: #337ab7; }
+.borderBottom-primary:hover { background-color: #337ab7; border-color: #337ab7; }
+.borderBottom-success { border-color: #32CD32; color: #32CD32; }
+.borderBottom-success:hover { background-color: #32CD32; border-color: #32CD32; }
+.borderBottom-info { border-color: #5bc0de; color: #5bc0de; }
+.borderBottom-info:hover { background-color: #5bc0de; border-color: #5bc0de; }
+.borderBottom-warning { border-color: #ec971f; color: #ec971f; }
+.borderBottom-warning:hover { background-color: #ec971f; border-color: #ec971f; }
+.borderBottom-danger { border-color: #d9534f; color: #d9534f; }
+.borderBottom-danger:hover { background-color: #d9534f; border-color: #d9534f; }
+
+.chromeStyle { border-radius: 17px; background-color: rgb(241, 243, 244); border-width: 0px; box-shadow: 0px 0px; transition-duration: 0.4s; }
+.chromeStyle:hover { background-color: rgb(232, 234, 237); }
+
+.chromeStyleButton { display: none !important; }
+.chromeStyleButtonLabel { transition-duration: 0.3s; cursor: pointer; border: 1px solid #337ab7; background-color: #337ab7; border-radius: 25px; height: 50px; width: 50px; color: white; font-size: 25px; text-align: center; line-height: 48px; }
+.chromeStyleButtonLabel:hover { background-color: rgb(32, 77, 116); border-color: rgb(32, 77, 116); }
+
+/* Checkbox */
+.container input[type=checkbox] {
+	opacity: 0;
+	cursor: pointer;
+}
+
+.checkmark {
+	position: absolute;
+	border-radius: 5px;
+	border: 0px solid dodgerblue;
+	top: 0;
+	left: 0;
+	height: 18px;
+	width: 18px;
+	background-color: #eee;
+	transition-duration: 0.2s; 
+}
+
+.chromeStyleCheckBox label {
+	margin-left: 10px;
+}
+
+.container:hover .checkmark {
+	background-color: #ccc;
+}
+
+.container input:checked ~ .checkmark {
+	background-color: white;
+	border: 5px solid dodgerblue;
+}
+
+.chromeStyleColumn {
+	border-radius: 10px;
+	box-shadow: 3px 3px 3px #eee, -3px 3px 3px #eee;
+	padding: 0px 0px;
+}
+
+.chromeStyleColumn form .form-group, .chromeStyleColumn h2 {
+	padding: 10px 5%; margin-bottom: 0px;
+	/* border-bottom: 1px solid #eee; */
+}
+
+.chromeStyleSelect option{
+	border-radius: 10px; height: 20px;  
+}
+
+.row { margin: 0px 0px; }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

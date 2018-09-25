@@ -1,7 +1,7 @@
 <!doctype>
 <html>
 	<head>
-		<title>RestIT - Login</title>
+		<title>RestIT - Errore</title>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		
@@ -10,15 +10,15 @@
 		<meta name="theme-color" content="#222222" />
 		
 		<!-- Jquery -->
-		<script src="<?php echo ROOT . "/public/vendor/jquery/jquery-3.3.1.min.js"; ?>"></script>
+		<script src="vendor/jquery/jquery-3.3.1.min.js"></script>
 		
 		<!-- bootstrap -->
-		<link rel="stylesheet" href="<?php echo ROOT . "/public/vendor/bootstrap/css/bootstrap.min.css"; ?>">
-		<script src="<?php echo ROOT . "/public/vendor/bootstrap/js/bootstrap.min.js"; ?>"></script>
+		<link rel="stylesheet" href="vendor\bootstrap\css\bootstrap.min.css">
+		<script src="vendor\bootstrap\js\bootstrap.min.js"></script>
 		
 		<!-- Stili aggiuntivi -->
-		<link rel="stylesheet" href="<?php echo ROOT . "/public/vendor/pyrohAndGemehStyle.css"; ?>">
-		<link rel="stylesheet" href="<?php echo ROOT . "/public/vendor/mainStyleRestIt.css"; ?>">
+		<link rel="stylesheet" href="vendor\pyrohAndGemehStyle.css">
+		<link rel="stylesheet" href="vendor\mainStyleRestIt.css">
 	</head>
 	<style>
 	 body { height: 100%; width: 100%; padding: 8% 0%; }
