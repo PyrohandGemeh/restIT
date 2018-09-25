@@ -23,6 +23,8 @@
 		<link rel="stylesheet" href="<?php echo ROOT . "/public/vendor/pyrohAndGemehStyle.css"; ?>">
 		<link rel="stylesheet" href="<?php echo ROOT . "/public/vendor/mainStyleRestIt.css"; ?>">
 		
+		<!-- Cookies -->
+		
 		<style>
 		* { font-family: 'Titillium Web'; }
 		</style>
