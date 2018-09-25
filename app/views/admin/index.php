@@ -9,27 +9,10 @@
 //echo $data['result'] .'<br><br>';
 
 if(isset($_COOKIE['login'])) {
-    ?>
-    <form action="utenti" method="post">
-        <input type="submit" name="bottone" value="Utenti">
-    </form>
-    <form action="periodifasce" method="post">
-        <input type="submit" name="bottone" value="PeriodiFasce">
-    </form>
-    <form action="sale" method="post">
-        <input type="submit" name="bottone" value="Sale">
-    </form>
-    <form action="prenotazioni" method="post">
-        <input type="submit" name="bottone" value="Prenotazioni">
-    </form>
-    <form action="stagioni" method="post">
-        <input type="submit" name="bottone" value="Stagioni">
-    </form>
-    <form action="giorniSpeciali" method="post">
-        <input type="submit" name="bottone" value="Giorni Speciali">
-    </form>
-    <form action="login/logout" method="post">
-        <input type="submit" name="bottone" value="Logout">
-    </form>
+    include 'menu.php';
+	?>
+		<title>RestIT - Pannello di controllo</title>
     <?php
+	include 'footer.php';
 }
+?>

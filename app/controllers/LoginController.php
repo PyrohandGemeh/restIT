@@ -33,7 +33,7 @@ class Login extends Controller {
         header("Location: ../");
     }
 
-    public function logoutPostAction() {
+    public function logoutAction() {
         setcookie('login', null, time()-1, '/');
         //unset($_SESSION['login']);
         header("Location: ../");

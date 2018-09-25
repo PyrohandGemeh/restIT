@@ -9,6 +9,9 @@
 		<link rel="icon" href="" type="image/x-icon" />
 		<meta name="theme-color" content="#222222" />
 		
+		<!-- Fonts -->
+		<link href="https://fonts.googleapis.com/css?family=Titillium+Web" rel="stylesheet">
+		
 		<!-- Jquery -->
 		<script src="<?php echo ROOT . "/public/vendor/jquery/jquery-3.3.1.min.js"; ?>"></script>
 		
@@ -19,10 +22,14 @@
 		<!-- Stili aggiuntivi -->
 		<link rel="stylesheet" href="<?php echo ROOT . "/public/vendor/pyrohAndGemehStyle.css"; ?>">
 		<link rel="stylesheet" href="<?php echo ROOT . "/public/vendor/mainStyleRestIt.css"; ?>">
+		
+		<style>
+		* { font-family: 'Titillium Web'; }
+		</style>
 	</head>
 	<style>
-	 body { height: 100%; width: 100%; padding: 8% 0%; }
-	 .chromeStyleColumn { background-color: white; margin-bottom: 0px; border-radius: 10px; box-shadow: none; }
+	body { height: 100%; width: 100%; padding: 8% 0%; }
+	.chromeStyleColumn { background-color: white; margin-bottom: 0px; border-radius: 10px; box-shadow: none; }
 	
 	body {
 		background: #FDFC47;  /* fallback for old browsers */
