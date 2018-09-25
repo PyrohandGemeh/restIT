@@ -11,7 +11,7 @@ require_once __DIR__ . '/../class/MySql.php';
 class Login extends Controller {
 
     public function indexAction($data = []) {
-        $this->view(get_class(), '', ['result' => $data]);
+        $this->view(get_class(), '', $data);
     }
 
     public function loginPostAction() {
