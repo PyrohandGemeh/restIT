@@ -38,9 +38,60 @@
 		background: -webkit-linear-gradient(135deg, #32CD32, #FDFC47);  /* Chrome 10-25, Safari 5.1-6 */
 		background: linear-gradient(135deg, #32CD32, #FDFC47); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 	}
+	
+	/*Cookie Consent Begin*/
+	#cookieConsent {
+		background-color: rgba(20,20,20,0.8);
+		min-height: 26px;
+		font-size: 14px;
+		color: #ccc;
+		line-height: 26px;
+		padding: 8px 0 8px 30px;
+		font-family: "Trebuchet MS",Helvetica,sans-serif;
+		position: fixed;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		display: none;
+		z-index: 9999;
+	}
+	#cookieConsent a {
+		color: #4B8EE7;
+		text-decoration: none;
+	}
+	#closeCookieConsent {
+		float: right;
+		display: inline-block;
+		cursor: pointer;
+		height: 20px;
+		width: 20px;
+		margin: -15px 0 0 0;
+		font-weight: bold;
+	}
+	#closeCookieConsent:hover {
+		color: #FFF;
+	}
+	#cookieConsent a.cookieConsentOK {
+		background-color: #F1D600;
+		color: #000;
+		display: inline-block;
+		border-radius: 5px;
+		padding: 0 20px;
+		cursor: pointer;
+		float: right;
+		margin: 0 60px 0 10px;
+	}
+	#cookieConsent a.cookieConsentOK:hover {
+		background-color: #E0C91F;
+	}
+	/*Cookie Consent End*/
 	</style>
 	
 	<body>
+		<div id="cookieConsent">
+			<div id="closeCookieConsent">x</div>
+			Questa applicazione Web utilizza Cookies. <a href="#" target="_blank">Maggiori informazioni</a>. <a class="cookieConsentOK">OK, ho capito</a>
+		</div>
 		<div class="container">
 			
 			<div class="row">
@@ -69,6 +120,15 @@
 		<script>
 			document.getElementById("username").addEventListener("keydown", function (e) { if(e.keyCode == 13) loginForm.submit(); });
 			document.getElementById("password").addEventListener("keydown", function (e) { if(e.keyCode == 13) loginForm.submit(); });
+		
+			$(document).ready(function(){   
+				setTimeout(function () {
+					$("#cookieConsent").fadeIn(200);
+				 }, 2000);
+				$("#closeCookieConsent, .cookieConsentOK").click(function() {
+					$("#cookieConsent").fadeOut(200);
+				}); 
+			}); 
 		</script>
 		
 		
