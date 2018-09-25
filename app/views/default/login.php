@@ -41,11 +41,29 @@
 	</style>
 	
 	<body>
+<<<<<<< HEAD
     <?php
     if(!empty($data['error'])) {
         echo 'Messaggio di errore' .'<br><br>';
     }
     ?>
+=======
+		<!--
+		<div id="cookieConsent">
+			Questa applicazione Web utilizza Cookies. <a href="#" target="_blank">Maggiori informazioni</a>. 
+			<a class="cookieConsentOK">OK, ho capito</a>
+		</div>
+		-->
+		
+		<?php
+		/*
+		if(!empty($data)) {
+			echo $data;
+		}
+		*/
+		?>
+		
+>>>>>>> e305875a07674c7c243260bc6109ec2a2858fc43
 		<div class="container">
 			<div class="row">
 				<div class="col-md-4 col-md-offset-4 chromeStyleColumn">
@@ -73,6 +91,17 @@
 		<script>
 			document.getElementById("username").addEventListener("keydown", function (e) { if(e.keyCode == 13) loginForm.submit(); });
 			document.getElementById("password").addEventListener("keydown", function (e) { if(e.keyCode == 13) loginForm.submit(); });
+			
+			/*
+			$(document).ready(function(){   
+				setTimeout(function () {
+					$("#cookieConsent").fadeIn(200);
+				 }, 0);
+				$("#closeCookieConsent, .cookieConsentOK").click(function() {
+					$("#cookieConsent").fadeOut(200);
+				}); 
+			}); 
+			*/
 		</script>
 		
 		

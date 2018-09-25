@@ -11,7 +11,11 @@ require_once __DIR__ . '/../class/MySql.php';
 class Login extends Controller {
 
     public function indexAction($data = []) {
+<<<<<<< HEAD
         $this->view(get_class(), '', ['error' => $data]);
+=======
+        $this->view(get_class(), '', $data);
+>>>>>>> e305875a07674c7c243260bc6109ec2a2858fc43
     }
 
     public function loginPostAction() {
