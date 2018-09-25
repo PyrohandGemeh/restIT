@@ -8,7 +8,6 @@
 
 if(!empty($data['result'])) {
     print_r($data['result']) .'<br><br>';
-
 }
 
 ?>
