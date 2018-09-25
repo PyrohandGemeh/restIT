@@ -42,8 +42,8 @@
 	
 	<body>
     <?php
-    if(!empty($data['result'])) {
-        print_r($data['result']) .'<br><br>';
+    if(!empty($data['error'])) {
+        echo 'Messaggio di errore' .'<br><br>';
     }
     ?>
 		<div class="container">

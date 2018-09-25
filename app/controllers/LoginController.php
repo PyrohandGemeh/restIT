@@ -11,7 +11,7 @@ require_once __DIR__ . '/../class/MySql.php';
 class Login extends Controller {
 
     public function indexAction($data = []) {
-        $this->view(get_class(), '', ['result' => $data]);
+        $this->view(get_class(), '', ['error' => $data]);
     }
 
     public function loginPostAction() {
@@ -30,8 +30,7 @@ class Login extends Controller {
 			header("Location: ../");
         }
 		else {
-            $errore = 'Credenziali errate';
-            header("Location: ../login/index/". $errore);
+            header("Location: ../login/index/error");
         }
     }
 
