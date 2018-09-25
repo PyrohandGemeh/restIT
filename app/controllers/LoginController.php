@@ -30,7 +30,6 @@ class Login extends Controller {
             //$_SESSION['login'] = $username;
 
         }
-
         header("Location: ../");
     }
 

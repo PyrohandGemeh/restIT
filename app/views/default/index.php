@@ -13,4 +13,4 @@ if(!empty($data['result'])) {
 
 ?>
 
-<a href="login/index">Login</a>
+<a href="login">Login</a>
