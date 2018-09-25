@@ -42,11 +42,14 @@
 	
 	<body>
     <?php
+    if(!empty($data['result'])) {
+        print_r($data['result']) .'<br><br>';
+    }
     ?>
 		<div class="container">
 			<div class="row">
 				<div class="col-md-4 col-md-offset-4 chromeStyleColumn">
-					<form action="login/login" method="POST" id="loginForm">
+					<form action="<?php echo ROOT . '/login/login'; ?>" method="POST" id="loginForm">
 						<br>
 						<h2>RestIT</h2>
 						<div class="form-group">

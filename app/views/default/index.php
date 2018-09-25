@@ -9,7 +9,6 @@
 if(!empty($data['result'])) {
     print_r($data['result']) .'<br><br>';
 }
-
 ?>
 
 <a href="login">Login</a>

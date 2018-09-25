@@ -30,7 +30,8 @@ class Login extends Controller {
 			header("Location: ../");
         }
 		else {
-            header("Location: ../login");
+            $errore = 'Credenziali errate';
+            header("Location: ../login/index/". $errore);
         }
     }
 
