@@ -41,13 +41,11 @@
 	</style>
 	
 	<body>
-<<<<<<< HEAD
     <?php
     if(!empty($data['error'])) {
         echo 'Messaggio di errore' .'<br><br>';
     }
     ?>
-=======
 		<!--
 		<div id="cookieConsent">
 			Questa applicazione Web utilizza Cookies. <a href="#" target="_blank">Maggiori informazioni</a>. 
@@ -62,8 +60,7 @@
 		}
 		*/
 		?>
-		
->>>>>>> e305875a07674c7c243260bc6109ec2a2858fc43
+
 		<div class="container">
 			<div class="row">
 				<div class="col-md-4 col-md-offset-4 chromeStyleColumn">
