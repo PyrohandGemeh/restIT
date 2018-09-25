@@ -53,7 +53,7 @@
 						
 						<div class="form-group">
 							<label for="exampleInputPassword1">Password</label>
-							<input type="password" name="password" class="form-control chromeStyle" id="exampleInputPassword1" placeholder="Password">
+							<input type="password" name="password" class="form-control chromeStyle" id="password" placeholder="Password">
 						</div>
 						<br>
 						<button type="button" onclick="loginForm.submit();" class="btn btn-lg center-block borderBottom borderBottom-success">Accedi</button>
@@ -63,7 +63,11 @@
 				<br>
 			</div>
 		</div>
-		
+
+		<script>
+			document.getElementById("username").addEventListener("keydown", function (e) { if(e.keyCode == 13) loginForm.submit(); });
+			document.getElementById("password").addEventListener("keydown", function (e) { if(e.keyCode == 13) loginForm.submit(); });
+		</script>
 		
 		
 	</body>

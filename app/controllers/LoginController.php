@@ -28,9 +28,10 @@ class Login extends Controller {
             setcookie('login', $username, time()+2592000, '/');
             //echo $_COOKIE['admin'];
             //$_SESSION['login'] = $username;
-
+			header("Location: ../");
         }
-        header("Location: ../");
+		else
+			header("Location: ../login");
     }
 
     public function logoutAction() {
