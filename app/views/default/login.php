@@ -38,14 +38,10 @@
 		background: -webkit-linear-gradient(135deg, #32CD32, #FDFC47);  /* Chrome 10-25, Safari 5.1-6 */
 		background: linear-gradient(135deg, #32CD32, #FDFC47); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 	}
+	.alertMessage { display: none; position: absolute; top: 15px; left: 15px; background-color: rgb(255, 255, 255, 0.8); z-index: -999; width: calc(100% - 30px); line-height: 50px; font-size: 20px; padding: 0px 20px; border-radius: 25px; height: 50px; }
 	</style>
 	
 	<body>
-    <?php
-    if(!empty($data['error'])) {
-        echo 'Messaggio di errore' .'<br><br>';
-    }
-    ?>
 		<!--
 		<div id="cookieConsent">
 			Questa applicazione Web utilizza Cookies. <a href="#" target="_blank">Maggiori informazioni</a>. 
@@ -84,21 +80,31 @@
 				<br>
 			</div>
 		</div>
+    <?php
+    if(!empty($data['error'])) {
+        echo '<div class="alertMessage" id="alertMessage">Messaggio di errore: Credenziali non corrette.</div>' .'<br><br>';
+    }
+    ?>
 
 		<script>
 			document.getElementById("username").addEventListener("keydown", function (e) { if(e.keyCode == 13) loginForm.submit(); });
 			document.getElementById("password").addEventListener("keydown", function (e) { if(e.keyCode == 13) loginForm.submit(); });
 			
-			/*
 			$(document).ready(function(){   
-				setTimeout(function () {
+				/*setTimeout(function () {
 					$("#cookieConsent").fadeIn(200);
 				 }, 0);
 				$("#closeCookieConsent, .cookieConsentOK").click(function() {
 					$("#cookieConsent").fadeOut(200);
-				}); 
+				});*/ 
+				
+				setTimeout(function () {
+					$("#alertMessage").fadeIn(200);
+				 }, 0);
+				 setTimeout(function () {
+					$("#alertMessage").fadeOut(200);
+				 }, 4000);
 			}); 
-			*/
 		</script>
 		
 		
