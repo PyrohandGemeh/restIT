@@ -15,7 +15,6 @@ class Calendar {
 		
 		if(isset($_GET["date"]))
 			$this->giornoSelezionato = $_GET["date"];
-			
     }
      
     /********************* PROPERTY ********************/  
@@ -28,6 +27,8 @@ class Calendar {
     private $naviHref = null;
 	private $naviQuery = null;
     private $giornoSelezionato = "#";
+	private $startOfWeek = 0;
+	private $giorniDelMese = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]; 
     /********************* PUBLIC **********************/  
         
     /**
@@ -57,7 +58,10 @@ class Calendar {
         $this->currentYear=$year;
         $this->currentMonth=$month;
         $this->daysInMonth=$this->_daysInMonth($month,$year);  
-         
+        
+		if($year % 400 == 0 || ($year % 100 != 0 && $year % 4 == 0))
+			$this->giorniDelMese[1] = 29;
+		
         $content='<div id="calendar" class="row">'.
                 '<div class="box col-xs-12 seven-cols">'.
                 $this->_createNavi().
@@ -88,7 +92,7 @@ class Calendar {
     */
     private function _showDay($cellNumber)
     {
-         
+		
         if($this->currentDay==0)
         {
             $firstDayOfTheWeek = date('N',strtotime($this->currentYear.'-'.$this->currentMonth.'-01'));
@@ -118,21 +122,33 @@ class Calendar {
         	$string .= '<div id="li-" class="col-xs-1 text-center" style="visibility:hidden;">'.$cellContent.'</div>';
         else
 		{
-        	if($this->currentDate < Date('Y-m-d', time()))
-				$string .= '<div id="li-'.$this->currentDate.'" class="col-xs-1 text-center" style="background-color: #AAAAAA; ">'.$cellContent.'</div>';
+        	if($this->startOfWeek == 0 || $cellNumber%7==1)
+				$inizioRiga = " starterBox";
+			else
+				$inizioRiga = "";
+			
+			if($cellNumber%7==0 || $this->giorniDelMese[$this->currentMonth - 1] == $cellContent)
+				$fineRiga = " enderBox";
+			else
+				$fineRiga = "";
+			
+			if($this->currentDate < Date('Y-m-d', time()))
+				$string .= '<div id="li-'.$this->currentDate.'" class="col-xs-1 text-center' . $inizioRiga . $fineRiga . '" style="background-color: #AAAAAA; ">'.$cellContent.'</div>';
         	else if($this->_isClosed($this->currentDate) < 0)
-                $string .= '<div id="li-'.$this->currentDate.'" class="col-xs-1 text-center" style="background-color: rgb(255, 128, 0); ">'.$cellContent.'</div>';
+                $string .= '<div id="li-'.$this->currentDate.'" class="col-xs-1 text-center' . $inizioRiga . $fineRiga . '" style="background-color: rgb(255, 128, 0); ">'.$cellContent.'</div>';
 			else if($this->_hasNoStagione($this->currentDate))
-                $string .= '<div id="li-'.$this->currentDate.'" class="col-xs-1 text-center" style="background-color: rgb(64, 134, 51); ">'.$cellContent.'</div>';
+                $string .= '<div id="li-'.$this->currentDate.'" class="col-xs-1 text-center' . $inizioRiga . $fineRiga . '" style="background-color: rgb(64, 134, 51); ">'.$cellContent.'</div>';
 			else
 			{
 				$string .= '<a href="index.php?date='.$this->currentDate.'"><div id="li-'.$this->currentDate.'" class="';
 				
 				if($this->giornoSelezionato == $this->currentDate)
-					$string .= ' selezionato col-xs-1 text-center">'.$cellContent.'</div></a>';
+					$string .= ' selezionato col-xs-1' . $inizioRiga . $fineRiga . ' text-center">'.$cellContent.'</div></a>';
 				else
-					$string .= ' col-xs-1 text-center">'.$cellContent.'</div></a>';
+					$string .= ' col-xs-1' . $inizioRiga . $fineRiga . ' text-center">'.$cellContent.'</div></a>';
 			}
+			
+			$this->startOfWeek++;
 		}
 		if($cellNumber%7==0)
 			$string .= "</div>";
@@ -170,7 +186,6 @@ class Calendar {
     */
     private function _createLabels()
     {  
-                 
         $content='';
          
         foreach($this->dayLabels as $index=>$label)
