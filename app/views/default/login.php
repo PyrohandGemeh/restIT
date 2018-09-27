@@ -31,6 +31,11 @@
 	</head>
 	<style>
 	body { height: 100%; width: 100%; padding: 8% 0%; }
+	
+	@media (max-width: 767px)
+	{
+		body { padding: 20% 0%; }
+	}
 	.chromeStyleColumn { background-color: white; margin-bottom: 0px; border-radius: 10px; box-shadow: none; }
 	
 	body {

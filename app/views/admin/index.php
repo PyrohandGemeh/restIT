@@ -20,7 +20,7 @@ if(isset($_COOKIE['login'])) {
 			{
 				.leftAdminHomepage { display: none; }
 				.toolButton { width: 100%; }
-				.toolButtonSet { padding: 0px 15px; }
+				.toolButtonSet { padding: 8px 15px 0px 15px; position: fixed; bottom: 0px; width: 100%; left: 0px; background-color: white; }
 				.toolButtonSet div { padding: 3px; }
 				.calendarBox { height: 600px; }
 			}
@@ -50,9 +50,17 @@ if(isset($_COOKIE['login'])) {
 		<div class="container adminHomepage">
 			<div class="row">
 				
-				<div class="col-md-1 leftAdminHomepage"></div> <!-- Calendario -->
+				<div class="col-md-1 leftAdminHomepage"></div>
 				
-				<div class="col-md-7 calendarBox"></div> <!-- Calendario -->
+				<div class="col-md-7 calendarBox">
+				
+					<?php
+						include ROOT . '/public/vendor/calendar.php';
+						$calendar = new Calendar();
+						$calendar->show();
+					?>
+						
+				</div> <!-- Calendario -->
 				
 				<div class="col-md-4 pannelloAdminHomepage chromeStyleColumn">
 					<br>

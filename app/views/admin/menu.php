@@ -27,7 +27,7 @@
 			</style>
 	</head>
 	<body>
-		<nav class="navbar navbar-inverse" style="border-radius: 0px; margin-bottom: 0px !important;">
+		<nav class="navbar navbar-inverse" style="border-radius: 0px; margin-bottom: 0px !important; text-transform: capitalize;">
 			<div class="container-fluid">
 				<div class="navbar-header">
 					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
