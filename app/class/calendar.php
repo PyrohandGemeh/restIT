@@ -53,7 +53,7 @@ class Calendar {
 			$year = $_GET['year'];
 			$month = $_GET['month'];
 		}
-        
+
         $this->currentYear=$year;
         $this->currentMonth=$month;
         $this->daysInMonth=$this->_daysInMonth($month,$year);  
@@ -225,6 +225,7 @@ class Calendar {
 
     private function _isClosed($day)
     {
+        /*
         // Connessione al DB
         $host = "localhost";
         $user = "ristoran_pren";
@@ -246,10 +247,13 @@ class Calendar {
         }
 
         return 0;
+        */
+        return false;
     }
 
     private function _hasNoStagione($day)
     {
+        /*
         // Connessione al DB
         $host = "localhost";
         $user = "ristoran_pren";
@@ -270,5 +274,8 @@ class Calendar {
         }
 
         return true;
+        */
+
+        return false;
     }
 }

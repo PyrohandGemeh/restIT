@@ -55,7 +55,7 @@ if(isset($_COOKIE['login'])) {
 				<div class="col-md-7 calendarBox">
 				
 					<?php
-						include ROOT . '/public/vendor/calendar.php';
+                        require_once __DIR__ . '/../../class/calendar.php';
 						$calendar = new Calendar();
 						$calendar->show();
 					?>
