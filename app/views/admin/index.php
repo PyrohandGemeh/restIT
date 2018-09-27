@@ -32,7 +32,7 @@ if(isset($_COOKIE['login'])) {
 			}
 			
 			.calendarBox { 
-				background-color : white; margin: 20px 100px; min-height: 475px; padding: 5px 5px 20px 5px; border-radius: 240px;
+				background-color : white; margin: 20px 100px; min-height: 475px; padding: 5px 5px 20px 5px; border-radius: 25px;
 			}
 			
 			.header, .calendarPlace {
