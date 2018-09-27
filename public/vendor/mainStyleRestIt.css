@@ -1,5 +1,6 @@
 
 .btn-lg { width: 150px; margin-bottom: 10px; border-radius: 23px; transition-duration: 0.3s; }
+.toolButton { width: 100%; }
 
 .borderBottom { box-shadow: 4px 4px #EEE; background-color: white; }
 .borderBottom:hover { color: white; }
@@ -15,8 +16,8 @@
 		-webkit-animation-iteration-count: infinite;
 	}
 }
-.borderBottom-default { border-color: #ccc; color: #ccc; }
-.borderBottom-default:hover { background-color: #ccc; color: white; border-color: #ccc; }
+.borderBottom-default { border-color: #bbb; color: #bbb; }
+.borderBottom-default:hover { background-color: #bbb; color: white; border-color: #bbb; }
 .borderBottom-primary { border-color: #337ab7; color: #337ab7; }
 .borderBottom-primary:hover { background-color: #337ab7; border-color: #337ab7; }
 .borderBottom-success { border-color: #32CD32; color: #32CD32; }
