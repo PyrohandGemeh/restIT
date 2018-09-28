@@ -10,8 +10,24 @@
 
 if(isset($_COOKIE['login'])) {
     include 'menu.php';
+    if($data != null)
+        echo $data;
 	?>
 		<title>RestIT - Pannello di controllo</title>
+        <script>
+            function invio(a)
+            {
+                date.value = a;
+                formCalendario.submit();
+            }
+            function invio1(a, b)
+            {
+                month.value = a;
+                year.value = b;
+                formCalendario.submit();
+            }
+
+        </script>
 		<style>
 			.adminHomepage { position: absolute; width: 100%; padding: 0px; }
 			.pannelloAdminHomepage { box-shadow: none; }
@@ -57,9 +73,11 @@ if(isset($_COOKIE['login'])) {
 				<div class="col-md-7 calendarPlace">
 					<div class="calendarBox">
 						<?php
-							require_once __DIR__ . '/../../class/calendar.php';
+							/*require_once __DIR__ . '/../../class/calendar.php';
 							$calendar = new Calendar();
-							echo $calendar->show();
+							echo $calendar->show();*/
+
+                        include 'calendar.php';
 						?>
 					</div>
 						
