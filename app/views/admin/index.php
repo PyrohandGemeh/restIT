@@ -38,6 +38,12 @@ if(isset($_COOKIE['login'])) {
 				.toolButton { width: 100%; }
 				.toolButtonSet { padding: 8px 15px 0px 15px; position: fixed; bottom: 0px; width: 100%; left: 0px; background-color: white; }
 				.toolButtonSet div { padding: 3px; }
+			
+				.calendarBox { 
+					background-color : white; margin: 0px; min-height: 475px; padding: 2px 2px 10px 2px; border-radius: 0px;
+				}
+				.header { border-radius: 0px; }
+				.calendarPlace { padding: 40px 0px; border-radius: 0px;}
 			}
 			@media (min-width: 768px)
 			{
@@ -45,10 +51,11 @@ if(isset($_COOKIE['login'])) {
 				.leftAdminHomepage { height: 100%; }
 				.adminHomepage { height: calc(100% - 52px); }
 				.calendarPlace { height: 100%; }
-			}
 			
-			.calendarBox { 
-				background-color : white; margin: 20px 100px; min-height: 475px; padding: 5px 5px 20px 5px; border-radius: 25px;
+				.calendarBox { 
+					background-color : white; margin: 40px 100px; min-height: 475px; padding: 5px 5px 20px 5px; border-radius: 25px;
+				}
+			
 			}
 			
 			.header, .calendarPlace {
