@@ -67,8 +67,8 @@
 						<li class="dropdown">
 							<a class="dropdown-toggle" data-toggle="dropdown" href="#">Fasce<span class="caret"></span></a>
 							<ul class="dropdown-menu">
-								<li><a href="<?php echo ROOT; ?>">Aggiungi fascia</a></li>
-								<li><a href="<?php echo ROOT; ?>">Modifica fasce</a></li>
+								<li><a href="<?php echo ROOT; ?>">Aggiungi periodo</a></li>
+								<li><a href="<?php echo ROOT .'/periodiFasce'; ?>">Modifica periodo</a></li>
 							</ul>
 						</li>
 						<li class="dropdown">

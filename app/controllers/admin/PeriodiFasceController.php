@@ -7,7 +7,6 @@
  */
 
 require_once __DIR__ . '/../../class/MySql.php';
-require_once __DIR__ . '/PeriodiController.php';
 
 class PeriodiFasce extends Controller {
 
@@ -25,9 +24,33 @@ class PeriodiFasce extends Controller {
     }
 
     public function addAction(){
-        $this->view(get_class(), 'add', '');
+        $conn = new MySql();
+        $result = $conn->selectAll('fasceorarie');
+
+        $this->view(get_class(), 'add', $result);
     }
 
+    public function addPostAction() {
+        $conn = new MySql();
+        $nome = $_POST['nome_periodo'];
+        $periodo = ['nome_periodo' => $nome];
+
+        $result = $conn->selectAllWhere('periodi', $periodo, '=');
+
+        if($result->num_rows == 0) {
+            $conn->insert('periodi', $periodo);
+
+            for($id = 1; $id <= 6; $id++) {
+                if($_POST[$id] != null || $_POST[$id] != '') {
+                    $periodi_fasce = ['id_periodo' => $conn->getConnection()->insert_id, 'id_fascia' => $id, 'orario' => $_POST[$id]];
+                    $conn->insert(get_class(), $periodi_fasce);
+                }
+            }
+        }
+
+        header("Location:". ROOT .'/'. get_class());
+    }
+    /*
     public function editAction($id){
         $conn = new MySql();
         $values = ['id_gestione' => $id];
@@ -52,5 +75,5 @@ class PeriodiFasce extends Controller {
         $conn->deleteWhereId('periodi', $periodo);
 
         header("Location: ". ROOT .'/'. get_class());
-    }
+    }*/
 }

@@ -60,7 +60,7 @@ class MySql {
             if ($value !== $last)
                 $query .= " AND ";
         }
-        echo $query;
+        //echo $query;
         return $this->connection->query($query);
     }
 
