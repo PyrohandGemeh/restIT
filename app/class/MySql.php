@@ -212,6 +212,8 @@ class MySql {
 
             return $this->connection->query($query);
         }
+
+
     }
 
     /*

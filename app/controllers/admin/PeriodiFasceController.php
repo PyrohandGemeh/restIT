@@ -39,10 +39,11 @@ class PeriodiFasce extends Controller {
 
         if($result->num_rows == 0) {
             $conn->insert('periodi', $periodo);
+            $id_periodo = $conn->getConnection()->insert_id;
 
             for($id = 1; $id <= 6; $id++) {
                 if($_POST[$id] != null || $_POST[$id] != '') {
-                    $periodi_fasce = ['id_periodo' => $conn->getConnection()->insert_id, 'id_fascia' => $id, 'orario' => $_POST[$id]];
+                    $periodi_fasce = ['id_periodo' => $id_periodo, 'id_fascia' => $id, 'orario' => $_POST[$id]];
                     $conn->insert(get_class(), $periodi_fasce);
                 }
             }

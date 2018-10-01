@@ -13,6 +13,7 @@
 
 <?php
 while($row = $data->fetch_assoc()) {
+    //echo $data->num_rows;
     echo $row["nome_periodo"] .': '. $row["nome_fascia"] .' '. $row['orario'];
     ?>
     <a href=<?php echo ROOT .'/periodifasce/edit/'. $row['id_periodo'] ?>>Edit</a>
