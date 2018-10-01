@@ -51,20 +51,18 @@ class PeriodiFasce extends Controller {
 
         header("Location:". ROOT .'/'. get_class());
     }
-    /*
+
     public function editAction($id){
         $conn = new MySql();
-        $values = ['id_gestione' => $id];
-        $tables = array('periodi', get_class(), 'fasce_orarie');
+        $values = ['id_periodo' => $id];
+        $tables = array('periodi', get_class(), 'fasceorarie');
         $ids = array('id', 'id_periodo', 'id_fascia', 'id');
 
         $result = $conn->selectAllInnerJoin3TablesWhere($tables, $ids, $values, '=');
 
-        if($result->num_rows == 1) {
-            $this->view(get_class(), 'edit', $result);
-        }
+        $this->view(get_class(), 'edit', $result);
     }
-
+/*
     public function removeAction($id_gestione, $id_periodo) {
         $conn = new MySql();
 

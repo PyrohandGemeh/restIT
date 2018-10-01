@@ -209,7 +209,6 @@ class MySql {
                 if ($value !== $last)
                     $query .= " AND ";
             }
-
             return $this->connection->query($query);
         }
 

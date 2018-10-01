@@ -12,13 +12,19 @@
 
 
 <?php
+$i = 0;
 while($row = $data->fetch_assoc()) {
     //echo $data->num_rows;
     echo $row["nome_periodo"] .': '. $row["nome_fascia"] .' '. $row['orario'];
-    ?>
-    <a href=<?php echo ROOT .'/periodifasce/edit/'. $row['id_periodo'] ?>>Edit</a>
-    <a href=<?php echo ROOT .'/periodifasce/remove/'. $row['id_periodo'] ?>>Delete</a>
-    <?php
+    if($i == 0) {
+        ?>
+        <a href=<?php echo ROOT . '/periodifasce/edit/' . $row['id_periodo'] ?>>Edit</a>
+        <a href=<?php echo ROOT . '/periodifasce/remove/' . $row['id_periodo'] ?>>Delete</a>
+        <?php
+        $i++;
+    }
+    else
+        $i = 0;
     echo '<br>';
 }
 ?>

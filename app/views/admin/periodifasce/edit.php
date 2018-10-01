@@ -6,9 +6,13 @@
  * Time: 14:40
  */
 
+
 while($row = $data->fetch_assoc()) {
-    echo "Eccolo" . "<br>";
-    echo $row["nome_periodo"] .': '. $row["nome_fascia"] .' '. $row['orario'];
+    //echo $data->num_rows;
+    echo $row["nome_fascia"] .': ';?> <input type="text" name="orario" value=" <?php echo $row['orario'];?>"> <br>
+    <?php
+
+    echo '<br>';
 }
 ?>
 
