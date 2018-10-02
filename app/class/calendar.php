@@ -248,7 +248,7 @@ class Calendar {
 
         return 0;
         */
-        return false;
+        return 0;
     }
 
     private function _hasNoStagione($day)

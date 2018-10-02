@@ -57,7 +57,7 @@ if(isset($_COOKIE['login'])) {
 					<?php
                         require_once __DIR__ . '/../../class/calendar.php';
 						$calendar = new Calendar();
-						$calendar->show();
+						echo $calendar->show();
 					?>
 						
 				</div> <!-- Calendario -->
