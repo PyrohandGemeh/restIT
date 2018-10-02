@@ -10,8 +10,24 @@
 
 if(isset($_COOKIE['login'])) {
     include 'menu.php';
+    if($data != null)
+        echo $data;
 	?>
 		<title>RestIT - Pannello di controllo</title>
+        <script>
+            function invio(a)
+            {
+                date.value = a;
+                formCalendario.submit();
+            }
+            function invio1(a, b)
+            {
+                month.value = a;
+                year.value = b;
+                formCalendario.submit();
+            }
+
+        </script>
 		<style>
 			.adminHomepage { position: absolute; width: 100%; padding: 0px; }
 			.pannelloAdminHomepage { box-shadow: none; }
@@ -22,22 +38,31 @@ if(isset($_COOKIE['login'])) {
 				.toolButton { width: 100%; }
 				.toolButtonSet { padding: 8px 15px 0px 15px; position: fixed; bottom: 0px; width: 100%; left: 0px; background-color: white; }
 				.toolButtonSet div { padding: 3px; }
-				.calendarBox { height: 600px; }
+			
+				.calendarBox { 
+					background-color : white; margin: 0px; min-height: 475px; padding: 2px 2px 10px 2px; border-radius: 0px;
+				}
+				.header { border-radius: 0px; }
+				.calendarPlace { padding: 40px 0px; border-radius: 0px;}
 			}
 			@media (min-width: 768px)
 			{
 				.pannelloAdminHomepage { height: 100%; }
 				.leftAdminHomepage { height: 100%; }
-				.calendarBox { height: 100%; }
 				.adminHomepage { height: calc(100% - 52px); }
+				.calendarPlace { height: 100%; }
+			
+				.calendarBox { 
+					background-color : white; margin: 40px 100px; min-height: 475px; padding: 5px 5px 20px 5px; border-radius: 25px;
+				}
+			
 			}
 			
-			.calendarBox {
+			.header, .calendarPlace {
 				background: #FDFC47;  /* fallback for old browsers */
 				background: -webkit-linear-gradient(135deg, #32CD32, #FDFC47);  /* Chrome 10-25, Safari 5.1-6 */
 				background: linear-gradient(135deg, #32CD32, #FDFC47); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 			}
-			
 			.counterList { padding: 0px 15px; }
 			.counterListNoun:hover { background-color: rgb(232, 234, 237); }
 			.counterListNoun, .counterListNumber { box-shadow: 2px 2px #ddd; color: #666; font-size: 18px; margin-bottom: 6px; height: 46px; line-height: 46px; }
@@ -52,6 +77,7 @@ if(isset($_COOKIE['login'])) {
 				
 				<div class="col-md-1 leftAdminHomepage"></div>
 				
+<<<<<<< HEAD
 				<div class="col-md-7 calendarBox">
 				
 					<?php
@@ -59,6 +85,18 @@ if(isset($_COOKIE['login'])) {
 						$calendar = new Calendar();
 						echo $calendar->show();
 					?>
+=======
+				<div class="col-md-7 calendarPlace">
+					<div class="calendarBox">
+						<?php
+							/*require_once __DIR__ . '/../../class/calendar.php';
+							$calendar = new Calendar();
+							echo $calendar->show();*/
+
+                        include 'calendar.php';
+						?>
+					</div>
+>>>>>>> f6c02243623559fa836de3a221f7a996434c3c81
 						
 				</div> <!-- Calendario -->
 				
@@ -79,7 +117,7 @@ if(isset($_COOKIE['login'])) {
 					<div class="row toolButtonSet">
 						<div class="col-xs-2 col-md-6"><button type="button" class="btn btn-lg toolButton borderBottom borderBottom-primary"><span class="glyphicon glyphicon-th-large" aria-hidden="true"></span><span class="textBorderBottom"> Visuale</span></button></div>
 						<div class="col-xs-2 col-md-6"><button type="button" class="btn btn-lg toolButton borderBottom borderBottom-success"><span class="glyphicon glyphicon-calendar" aria-hidden="true"></span><span class="textBorderBottom"> Prenotati</span></button></div>
-						<div class="col-xs-2 col-md-6"><button type="button" class="btn btn-lg toolButton borderBottom borderBottom-warning"><span class="glyphicon glyphicon-gift" aria-hidden="true"></span><span class="textBorderBottom"> Prenota festa</span></button></div>
+						<div class="col-xs-2 col-md-6"><button type="button" class="btn btn-lg toolButton borderBottom borderBottom-warning"><span class="glyphicon glyphicon-gift" aria-hidden="true"></span><span class="textBorderBottom"> Festa</span></button></div>
 						<div class="col-xs-2 col-md-6"><button type="button" class="btn btn-lg toolButton borderBottom borderBottom-danger"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span><span class="textBorderBottom"> Revisioni</span></button></div>
 						<div class="col-xs-2 col-md-6"><button type="button" class="btn btn-lg toolButton borderBottom borderBottom-info"><span class="glyphicon glyphicon-globe" aria-hidden="true"></span><span class="textBorderBottom"> Guida</span></button></div>
 						<div class="col-xs-2 col-md-6"><button type="button" class="btn btn-lg toolButton borderBottom borderBottom-default"><span class="glyphicon glyphicon-cog" aria-hidden="true"></span><span class="textBorderBottom"> Opzioni</span></button></div>

@@ -7,7 +7,6 @@
  */
 
 require_once __DIR__ . '/../../class/MySql.php';
-require_once __DIR__ . '/PeriodiController.php';
 
 class PeriodiFasce extends Controller {
 
@@ -25,22 +24,45 @@ class PeriodiFasce extends Controller {
     }
 
     public function addAction(){
-        $this->view(get_class(), 'add', '');
+        $conn = new MySql();
+        $result = $conn->selectAll('fasceorarie');
+
+        $this->view(get_class(), 'add', $result);
+    }
+
+    public function addPostAction() {
+        $conn = new MySql();
+        $nome = $_POST['nome_periodo'];
+        $periodo = ['nome_periodo' => $nome];
+
+        $result = $conn->selectAllWhere('periodi', $periodo, '=');
+
+        if($result->num_rows == 0) {
+            $conn->insert('periodi', $periodo);
+            $id_periodo = $conn->getConnection()->insert_id;
+
+            for($id = 1; $id <= 6; $id++) {
+                if($_POST[$id] != null || $_POST[$id] != '') {
+                    $periodi_fasce = ['id_periodo' => $id_periodo, 'id_fascia' => $id, 'orario' => $_POST[$id]];
+                    $conn->insert(get_class(), $periodi_fasce);
+                }
+            }
+        }
+
+        header("Location:". ROOT .'/'. get_class());
     }
 
     public function editAction($id){
         $conn = new MySql();
-        $values = ['id_gestione' => $id];
-        $tables = array('periodi', get_class(), 'fasce_orarie');
+        $values = ['id_periodo' => $id];
+        $tables = array('periodi', get_class(), 'fasceorarie');
         $ids = array('id', 'id_periodo', 'id_fascia', 'id');
 
         $result = $conn->selectAllInnerJoin3TablesWhere($tables, $ids, $values, '=');
 
-        if($result->num_rows == 1) {
-            $this->view(get_class(), 'edit', $result);
-        }
+        $this->view(get_class(), 'edit', $result);
     }
-
+/*
     public function removeAction($id_gestione, $id_periodo) {
         $conn = new MySql();
 
@@ -52,5 +74,5 @@ class PeriodiFasce extends Controller {
         $conn->deleteWhereId('periodi', $periodo);
 
         header("Location: ". ROOT .'/'. get_class());
-    }
+    }*/
 }

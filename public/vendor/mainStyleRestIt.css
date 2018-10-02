@@ -85,9 +85,101 @@
 .row { margin: 0px 0px; }
 
 
+/* Calendario */
 
 
+.seven-cols .col-md-1, .seven-cols .col-sm-1, .seven-cols .col-lg-1, .seven-cols .col-xs-1 {
+    width: calc(100% / 7);/*14.285714285714285714285714285714%;*/
+    padding: 0px; 
+  }
+  
 
+.box{
+height:80px;
+color: white;
+line-height: 80px;
+padding: 0px;
+}
+
+.header, .header .prev, .header .next, .header .title{
+height: 100%;
+}
+
+.header .prev, .header .next{
+cursor:pointer;
+text-decoration:none;
+color: white;
+}
+.header { 
+border-radius: 25px;
+}
+
+.header .title{
+font-size:18px;
+}
+
+.box-content{
+border-top:none;
+}
+.box-content .labelNew{
+background-color: white;
+}
+
+div.labelNew{
+margin-top:5px;
+border-radius: 15px;
+box-shadow: 0px 2px #ddd;
+}
+
+div.labelNew div{
+height:30px;
+line-height:30px;
+color:#000;
+font-size:15px;
+}
+
+div.dates{
+margin-bottom:5px;
+}
+
+div.dates div.row div{
+margin-top:10px;
+font-size:19px;
+line-height:44px;
+height:44px;
+background-color: rgb(241, 243, 244);
+color:#000;
+box-shadow: 2px 2px #ddd; 
+transition-duration: 0.2s;
+}
+
+.starterBox {
+	border-radius: 25px 0px 0px 25px;
+}
+
+.enderBox {
+	border-radius: 0px 25px 25px 0px;
+}
+
+.starterBox.enderBox {
+	border-radius: 25px;
+}
+
+div.dates div.row div:hover {
+background-color: rgb(232, 234, 237);
+}
+
+.selezionato {
+background-color: #57b846 !important;
+}
+
+:focus{
+outline:none;
+}
+
+div.clear{
+clear:both;
+}
 
 
 
